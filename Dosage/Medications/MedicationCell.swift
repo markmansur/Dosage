@@ -9,6 +9,12 @@
 import UIKit
 
 class MedicationCell: UICollectionViewCell {
+    var medication: Medication? {
+        didSet {
+            
+        }
+    }
+    
     let nameLabel: UILabel = {
         let label = UILabel()
         label.text = "Ibuprofen"

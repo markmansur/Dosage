@@ -46,7 +46,6 @@
 		68E8C6FB239A0EF7002281DE = {
 			isa = PBXGroup;
 			children = (
-				68E8C723239A187D002281DE /* DosageModels.xcdatamodeld */,
 				68E8C706239A0EF7002281DE /* Dosage */,
 				68E8C705239A0EF7002281DE /* Products */,
 			);
@@ -63,6 +62,7 @@
 		68E8C706239A0EF7002281DE /* Dosage */ = {
 			isa = PBXGroup;
 			children = (
+				68E8C723239A187D002281DE /* DosageModels.xcdatamodeld */,
 				68E8C720239A17CB002281DE /* Extensions */,
 				68E8C71B239A10E8002281DE /* Medications */,
 				68E8C707239A0EF7002281DE /* AppDelegate.swift */,
