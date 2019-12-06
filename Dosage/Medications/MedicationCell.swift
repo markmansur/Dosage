@@ -11,13 +11,12 @@ import UIKit
 class MedicationCell: UICollectionViewCell {
     var medication: Medication? {
         didSet {
-            
+            nameLabel.text = medication?.name
         }
     }
     
     let nameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Ibuprofen"
         label.font = UIFont.boldSystemFont(ofSize: 14)
         label.textColor = UIColor(r: 50, g: 160, b: 96, alpha: 0.98)
         label.textAlignment = .center

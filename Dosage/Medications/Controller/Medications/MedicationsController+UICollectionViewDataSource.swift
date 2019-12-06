@@ -11,6 +11,7 @@ import UIKit
 extension MedicationsController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as? MedicationCell else { return UICollectionViewCell() }
+        cell.medication = medications[indexPath.row]
         return cell
     }
     
