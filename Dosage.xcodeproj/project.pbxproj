@@ -9,21 +9,21 @@
 /* Begin PBXBuildFile section */
 		68E8C708239A0EF7002281DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E8C707239A0EF7002281DE /* AppDelegate.swift */; };
 		68E8C70A239A0EF7002281DE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E8C709239A0EF7002281DE /* SceneDelegate.swift */; };
-		68E8C70C239A0EF7002281DE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E8C70B239A0EF7002281DE /* ContentView.swift */; };
 		68E8C70E239A0EF9002281DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68E8C70D239A0EF9002281DE /* Assets.xcassets */; };
 		68E8C711239A0EF9002281DE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68E8C710239A0EF9002281DE /* Preview Assets.xcassets */; };
 		68E8C714239A0EF9002281DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68E8C712239A0EF9002281DE /* LaunchScreen.storyboard */; };
+		68E8C71D239A10FD002281DE /* MedicationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E8C71C239A10FD002281DE /* MedicationsController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		68E8C704239A0EF7002281DE /* Dosage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dosage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68E8C707239A0EF7002281DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		68E8C709239A0EF7002281DE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		68E8C70B239A0EF7002281DE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		68E8C70D239A0EF9002281DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		68E8C710239A0EF9002281DE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		68E8C713239A0EF9002281DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		68E8C715239A0EF9002281DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		68E8C71C239A10FD002281DE /* MedicationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationsController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,9 +56,9 @@
 		68E8C706239A0EF7002281DE /* Dosage */ = {
 			isa = PBXGroup;
 			children = (
+				68E8C71B239A10E8002281DE /* Medications */,
 				68E8C707239A0EF7002281DE /* AppDelegate.swift */,
 				68E8C709239A0EF7002281DE /* SceneDelegate.swift */,
-				68E8C70B239A0EF7002281DE /* ContentView.swift */,
 				68E8C70D239A0EF9002281DE /* Assets.xcassets */,
 				68E8C712239A0EF9002281DE /* LaunchScreen.storyboard */,
 				68E8C715239A0EF9002281DE /* Info.plist */,
@@ -73,6 +73,14 @@
 				68E8C710239A0EF9002281DE /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		68E8C71B239A10E8002281DE /* Medications */ = {
+			isa = PBXGroup;
+			children = (
+				68E8C71C239A10FD002281DE /* MedicationsController.swift */,
+			);
+			path = Medications;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,7 +156,7 @@
 			files = (
 				68E8C708239A0EF7002281DE /* AppDelegate.swift in Sources */,
 				68E8C70A239A0EF7002281DE /* SceneDelegate.swift in Sources */,
-				68E8C70C239A0EF7002281DE /* ContentView.swift in Sources */,
+				68E8C71D239A10FD002281DE /* MedicationsController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
