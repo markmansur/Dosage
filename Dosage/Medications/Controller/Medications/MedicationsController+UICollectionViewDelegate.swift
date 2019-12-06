@@ -16,4 +16,14 @@ extension MedicationsController {
         
         navigationController?.pushViewController(medicationController, animated: true)
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.cellForItem(at: indexPath) as? MedicationCell else { return }
+        cell.highlight()
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.cellForItem(at: indexPath) as? MedicationCell else { return }
+        cell.unHighlight()
+    }
 }

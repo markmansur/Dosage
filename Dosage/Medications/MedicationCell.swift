@@ -69,5 +69,15 @@ class MedicationCell: UICollectionViewCell {
         stackView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
     }
     
+    func highlight() {
+        backgroundColor = UIColor(r: 63, g: 186, b: 115, alpha: 1)
+        nameLabel.textColor = .white
+    }
+    
+    func unHighlight() {
+        backgroundColor = .white
+        nameLabel.textColor = UIColor(r: 50, g: 160, b: 96, alpha: 0.98)   
+    }
+    
     
 }
