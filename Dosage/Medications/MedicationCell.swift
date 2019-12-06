@@ -22,6 +22,7 @@ class MedicationCell: UICollectionViewCell {
     
     private func setupCell() {
         backgroundColor = .white
+        layer.cornerRadius = 12
     }
     
     private func setupLayer() {

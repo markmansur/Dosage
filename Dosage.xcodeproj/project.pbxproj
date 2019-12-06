@@ -14,6 +14,7 @@
 		68E8C714239A0EF9002281DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68E8C712239A0EF9002281DE /* LaunchScreen.storyboard */; };
 		68E8C71D239A10FD002281DE /* MedicationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E8C71C239A10FD002281DE /* MedicationsController.swift */; };
 		68E8C71F239A1341002281DE /* MedicationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E8C71E239A1341002281DE /* MedicationCell.swift */; };
+		68E8C722239A17E5002281DE /* UIColor+helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E8C721239A17E5002281DE /* UIColor+helpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		68E8C715239A0EF9002281DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		68E8C71C239A10FD002281DE /* MedicationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationsController.swift; sourceTree = "<group>"; };
 		68E8C71E239A1341002281DE /* MedicationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationCell.swift; sourceTree = "<group>"; };
+		68E8C721239A17E5002281DE /* UIColor+helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+helpers.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 		68E8C706239A0EF7002281DE /* Dosage */ = {
 			isa = PBXGroup;
 			children = (
+				68E8C720239A17CB002281DE /* Extensions */,
 				68E8C71B239A10E8002281DE /* Medications */,
 				68E8C707239A0EF7002281DE /* AppDelegate.swift */,
 				68E8C709239A0EF7002281DE /* SceneDelegate.swift */,
@@ -84,6 +87,14 @@
 				68E8C71E239A1341002281DE /* MedicationCell.swift */,
 			);
 			path = Medications;
+			sourceTree = "<group>";
+		};
+		68E8C720239A17CB002281DE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				68E8C721239A17E5002281DE /* UIColor+helpers.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,6 +171,7 @@
 				68E8C71F239A1341002281DE /* MedicationCell.swift in Sources */,
 				68E8C708239A0EF7002281DE /* AppDelegate.swift in Sources */,
 				68E8C70A239A0EF7002281DE /* SceneDelegate.swift in Sources */,
+				68E8C722239A17E5002281DE /* UIColor+helpers.swift in Sources */,
 				68E8C71D239A10FD002281DE /* MedicationsController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
