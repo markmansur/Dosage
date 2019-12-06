@@ -20,6 +20,8 @@
 		68E8C72C239A1DBB002281DE /* MedicationsController+UICollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E8C72B239A1DBB002281DE /* MedicationsController+UICollectionViewDataSource.swift */; };
 		68E8C72E239A1E42002281DE /* MedicationsController+UICollectionViewDelegateFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E8C72D239A1E42002281DE /* MedicationsController+UICollectionViewDelegateFlowLayout.swift */; };
 		68E8C731239A1F30002281DE /* MedicationsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E8C730239A1F30002281DE /* MedicationsNavigationController.swift */; };
+		68E8C733239ACC5C002281DE /* MedicationsController+UICollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E8C732239ACC5C002281DE /* MedicationsController+UICollectionViewDelegate.swift */; };
+		68E8C736239ACC9C002281DE /* MedicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E8C735239ACC9C002281DE /* MedicationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		68E8C72B239A1DBB002281DE /* MedicationsController+UICollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MedicationsController+UICollectionViewDataSource.swift"; sourceTree = "<group>"; };
 		68E8C72D239A1E42002281DE /* MedicationsController+UICollectionViewDelegateFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MedicationsController+UICollectionViewDelegateFlowLayout.swift"; sourceTree = "<group>"; };
 		68E8C730239A1F30002281DE /* MedicationsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationsNavigationController.swift; sourceTree = "<group>"; };
+		68E8C732239ACC5C002281DE /* MedicationsController+UICollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MedicationsController+UICollectionViewDelegate.swift"; sourceTree = "<group>"; };
+		68E8C735239ACC9C002281DE /* MedicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,7 @@
 		68E8C706239A0EF7002281DE /* Dosage */ = {
 			isa = PBXGroup;
 			children = (
+				68E8C734239ACC8F002281DE /* Medication */,
 				68E8C723239A187D002281DE /* DosageModels.xcdatamodeld */,
 				68E8C720239A17CB002281DE /* Extensions */,
 				68E8C71B239A10E8002281DE /* Medications */,
@@ -124,8 +129,17 @@
 				68E8C71C239A10FD002281DE /* MedicationsController.swift */,
 				68E8C72B239A1DBB002281DE /* MedicationsController+UICollectionViewDataSource.swift */,
 				68E8C72D239A1E42002281DE /* MedicationsController+UICollectionViewDelegateFlowLayout.swift */,
+				68E8C732239ACC5C002281DE /* MedicationsController+UICollectionViewDelegate.swift */,
 			);
 			path = Medications;
+			sourceTree = "<group>";
+		};
+		68E8C734239ACC8F002281DE /* Medication */ = {
+			isa = PBXGroup;
+			children = (
+				68E8C735239ACC9C002281DE /* MedicationController.swift */,
+			);
+			path = Medication;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,9 +215,11 @@
 			files = (
 				68E8C72C239A1DBB002281DE /* MedicationsController+UICollectionViewDataSource.swift in Sources */,
 				68E8C71F239A1341002281DE /* MedicationCell.swift in Sources */,
+				68E8C736239ACC9C002281DE /* MedicationController.swift in Sources */,
 				68E8C708239A0EF7002281DE /* AppDelegate.swift in Sources */,
 				68E8C70A239A0EF7002281DE /* SceneDelegate.swift in Sources */,
 				68E8C722239A17E5002281DE /* UIColor+helpers.swift in Sources */,
+				68E8C733239ACC5C002281DE /* MedicationsController+UICollectionViewDelegate.swift in Sources */,
 				68E8C725239A187D002281DE /* DosageModels.xcdatamodeld in Sources */,
 				68E8C72E239A1E42002281DE /* MedicationsController+UICollectionViewDelegateFlowLayout.swift in Sources */,
 				68E8C727239A19E2002281DE /* CoreDataManager.swift in Sources */,
