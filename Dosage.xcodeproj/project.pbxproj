@@ -15,6 +15,7 @@
 		68E8C71D239A10FD002281DE /* MedicationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E8C71C239A10FD002281DE /* MedicationsController.swift */; };
 		68E8C71F239A1341002281DE /* MedicationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E8C71E239A1341002281DE /* MedicationCell.swift */; };
 		68E8C722239A17E5002281DE /* UIColor+helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E8C721239A17E5002281DE /* UIColor+helpers.swift */; };
+		68E8C725239A187D002281DE /* DosageModels.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 68E8C723239A187D002281DE /* DosageModels.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		68E8C71C239A10FD002281DE /* MedicationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationsController.swift; sourceTree = "<group>"; };
 		68E8C71E239A1341002281DE /* MedicationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationCell.swift; sourceTree = "<group>"; };
 		68E8C721239A17E5002281DE /* UIColor+helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+helpers.swift"; sourceTree = "<group>"; };
+		68E8C724239A187D002281DE /* DosageModels.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DosageModels.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +46,7 @@
 		68E8C6FB239A0EF7002281DE = {
 			isa = PBXGroup;
 			children = (
+				68E8C723239A187D002281DE /* DosageModels.xcdatamodeld */,
 				68E8C706239A0EF7002281DE /* Dosage */,
 				68E8C705239A0EF7002281DE /* Products */,
 			);
@@ -172,6 +175,7 @@
 				68E8C708239A0EF7002281DE /* AppDelegate.swift in Sources */,
 				68E8C70A239A0EF7002281DE /* SceneDelegate.swift in Sources */,
 				68E8C722239A17E5002281DE /* UIColor+helpers.swift in Sources */,
+				68E8C725239A187D002281DE /* DosageModels.xcdatamodeld in Sources */,
 				68E8C71D239A10FD002281DE /* MedicationsController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -366,6 +370,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		68E8C723239A187D002281DE /* DosageModels.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				68E8C724239A187D002281DE /* DosageModels.xcdatamodel */,
+			);
+			currentVersion = 68E8C724239A187D002281DE /* DosageModels.xcdatamodel */;
+			path = DosageModels.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 68E8C6FC239A0EF7002281DE /* Project object */;
 }
