@@ -47,6 +47,7 @@ class MedicationsController: UICollectionViewController {
     
     private func setupNavigationController() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(handleAddMedication))
+        navigationItem.title = "Medications"
     }
     
     @objc private func handleAddMedication() {
