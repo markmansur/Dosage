@@ -9,6 +9,26 @@
 import UIKit
 
 class MedicationCell: UICollectionViewCell {
+    let nameLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Ibuprofen"
+        label.font = UIFont.boldSystemFont(ofSize: 14)
+        label.textColor = UIColor(r: 50, g: 160, b: 96, alpha: 0.98)
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let timesLeftLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.boldSystemFont(ofSize: 12)
+        label.textColor = UIColor.lightGray
+        label.text = "3 more times today"
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupCell()
@@ -34,7 +54,14 @@ class MedicationCell: UICollectionViewCell {
     }
     
     private func setupSubviews() {
+        let stackView = UIStackView(arrangedSubviews: [nameLabel, timesLeftLabel])
+        stackView.axis = .vertical
+        stackView.spacing = 15
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         
+        addSubview(stackView)
+        stackView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        stackView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
     }
     
     
