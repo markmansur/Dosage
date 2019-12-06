@@ -31,6 +31,7 @@ class MedicationsController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
+        setupNavigationController()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -42,5 +43,14 @@ class MedicationsController: UICollectionViewController {
         collectionView.backgroundColor = UIColor(r: 246, g: 248, b: 252, alpha: 1)
         
         collectionView.register(MedicationCell.self, forCellWithReuseIdentifier: "cellId")
+    }
+    
+    private func setupNavigationController() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(handleAddMedication))
+    }
+    
+    @objc private func handleAddMedication() {
+        let medication = CoreDataManager.shared.addMedication(name: "Ibuprofen")
+        medications.append(medication)
     }
 }
