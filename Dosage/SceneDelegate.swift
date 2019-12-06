@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            let navController = UINavigationController(rootViewController: MedicationsController())
+            let navController = MedicationsNavigationController(rootViewController: MedicationsController())
             
             window.rootViewController = navController
             self.window = window
