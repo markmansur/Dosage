@@ -13,6 +13,7 @@
 		68E8C711239A0EF9002281DE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68E8C710239A0EF9002281DE /* Preview Assets.xcassets */; };
 		68E8C714239A0EF9002281DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68E8C712239A0EF9002281DE /* LaunchScreen.storyboard */; };
 		68E8C71D239A10FD002281DE /* MedicationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E8C71C239A10FD002281DE /* MedicationsController.swift */; };
+		68E8C71F239A1341002281DE /* MedicationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E8C71E239A1341002281DE /* MedicationCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		68E8C713239A0EF9002281DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		68E8C715239A0EF9002281DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		68E8C71C239A10FD002281DE /* MedicationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationsController.swift; sourceTree = "<group>"; };
+		68E8C71E239A1341002281DE /* MedicationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				68E8C71C239A10FD002281DE /* MedicationsController.swift */,
+				68E8C71E239A1341002281DE /* MedicationCell.swift */,
 			);
 			path = Medications;
 			sourceTree = "<group>";
@@ -154,6 +157,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68E8C71F239A1341002281DE /* MedicationCell.swift in Sources */,
 				68E8C708239A0EF7002281DE /* AppDelegate.swift in Sources */,
 				68E8C70A239A0EF7002281DE /* SceneDelegate.swift in Sources */,
 				68E8C71D239A10FD002281DE /* MedicationsController.swift in Sources */,
