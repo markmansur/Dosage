@@ -17,6 +17,8 @@
 		68E8C722239A17E5002281DE /* UIColor+helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E8C721239A17E5002281DE /* UIColor+helpers.swift */; };
 		68E8C725239A187D002281DE /* DosageModels.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 68E8C723239A187D002281DE /* DosageModels.xcdatamodeld */; };
 		68E8C727239A19E2002281DE /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E8C726239A19E2002281DE /* CoreDataManager.swift */; };
+		68E8C72C239A1DBB002281DE /* MedicationsController+UICollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E8C72B239A1DBB002281DE /* MedicationsController+UICollectionViewDataSource.swift */; };
+		68E8C72E239A1E42002281DE /* MedicationsController+UICollectionViewDelegateFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E8C72D239A1E42002281DE /* MedicationsController+UICollectionViewDelegateFlowLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		68E8C721239A17E5002281DE /* UIColor+helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+helpers.swift"; sourceTree = "<group>"; };
 		68E8C724239A187D002281DE /* DosageModels.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DosageModels.xcdatamodel; sourceTree = "<group>"; };
 		68E8C726239A19E2002281DE /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		68E8C72B239A1DBB002281DE /* MedicationsController+UICollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MedicationsController+UICollectionViewDataSource.swift"; sourceTree = "<group>"; };
+		68E8C72D239A1E42002281DE /* MedicationsController+UICollectionViewDelegateFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MedicationsController+UICollectionViewDelegateFlowLayout.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +93,7 @@
 		68E8C71B239A10E8002281DE /* Medications */ = {
 			isa = PBXGroup;
 			children = (
-				68E8C71C239A10FD002281DE /* MedicationsController.swift */,
+				68E8C72A239A1D85002281DE /* Controller */,
 				68E8C71E239A1341002281DE /* MedicationCell.swift */,
 			);
 			path = Medications;
@@ -101,6 +105,16 @@
 				68E8C721239A17E5002281DE /* UIColor+helpers.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		68E8C72A239A1D85002281DE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				68E8C71C239A10FD002281DE /* MedicationsController.swift */,
+				68E8C72B239A1DBB002281DE /* MedicationsController+UICollectionViewDataSource.swift */,
+				68E8C72D239A1E42002281DE /* MedicationsController+UICollectionViewDelegateFlowLayout.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,11 +188,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68E8C72C239A1DBB002281DE /* MedicationsController+UICollectionViewDataSource.swift in Sources */,
 				68E8C71F239A1341002281DE /* MedicationCell.swift in Sources */,
 				68E8C708239A0EF7002281DE /* AppDelegate.swift in Sources */,
 				68E8C70A239A0EF7002281DE /* SceneDelegate.swift in Sources */,
 				68E8C722239A17E5002281DE /* UIColor+helpers.swift in Sources */,
 				68E8C725239A187D002281DE /* DosageModels.xcdatamodeld in Sources */,
+				68E8C72E239A1E42002281DE /* MedicationsController+UICollectionViewDelegateFlowLayout.swift in Sources */,
 				68E8C727239A19E2002281DE /* CoreDataManager.swift in Sources */,
 				68E8C71D239A10FD002281DE /* MedicationsController.swift in Sources */,
 			);
