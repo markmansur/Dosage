@@ -11,6 +11,11 @@ import UIKit
 class MedicationsController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     let spacing:CGFloat = 24
     
+    var medications = [Medication]() {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
     
     init() {
         let layout = UICollectionViewFlowLayout()
@@ -26,6 +31,11 @@ class MedicationsController: UICollectionViewController, UICollectionViewDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        medications = CoreDataManager.shared.getAllMedications()
     }
     
     private func setupCollectionView() {
@@ -45,7 +55,7 @@ class MedicationsController: UICollectionViewController, UICollectionViewDelegat
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return medications.count
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
