@@ -102,9 +102,9 @@ class AddMedicationView: UIView {
         mainStackView.axis = .vertical
         
         addSubview(mainStackView)
-        mainStackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 48).isActive = true
-        mainStackView.topAnchor.constraint(equalTo: topAnchor, constant: 50).isActive = true
-        mainStackView.rightAnchor.constraint(equalTo: rightAnchor, constant: -48).isActive = true
+        mainStackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 40).isActive = true
+        mainStackView.topAnchor.constraint(equalTo: topAnchor, constant: 40).isActive = true
+        mainStackView.rightAnchor.constraint(equalTo: rightAnchor, constant: -40).isActive = true
         
         
         addSubview(addButton)

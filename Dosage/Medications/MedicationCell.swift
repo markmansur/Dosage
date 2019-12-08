@@ -72,11 +72,13 @@ class MedicationCell: UICollectionViewCell {
     func highlight() {
         backgroundColor = UIColor(named: "darkGreen")
         nameLabel.textColor = .white
+        timesLeftLabel.textColor = .white
     }
     
     func unHighlight() {
         backgroundColor = .white
-        nameLabel.textColor = UIColor(r: 50, g: 160, b: 96, alpha: 0.98)   
+        nameLabel.textColor = UIColor(r: 50, g: 160, b: 96, alpha: 0.98)
+        timesLeftLabel.textColor = .lightGray
     }
     
     
