@@ -13,10 +13,22 @@ protocol AddMedicationViewDelegate {
 }
 
 class AddMedicationView: UIView {
+    // MARK: Properties
     var addHandler: ((_ name: String) -> Void)?
+    
+    let nameLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Name"
+        label.textColor = .lightGray
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let nameTextField =  AddMedicationTextField()
     
     private let addButton: UIButton = {
         let button = UIButton()
+        button.heightAnchor.constraint(equalToConstant: 50).isActive = true
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Add Dosage", for: .normal)
         button.setTitleColor(.white, for: .normal)
@@ -42,18 +54,30 @@ class AddMedicationView: UIView {
     private func setupView() {
         backgroundColor = .white
         
-        layer.cornerRadius = 65
+        layer.cornerRadius = 40
         clipsToBounds = true
         layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
     
     private func setupSubViews() {
-        addSubview(addButton)
+        
+        // nameLabel & nameTextField
+        let nameStackView = UIStackView(arrangedSubviews: [nameLabel, nameTextField])
+        nameStackView.spacing = 5
+        nameStackView.translatesAutoresizingMaskIntoConstraints = false
+        nameStackView.axis = .vertical
 
-        addButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        addButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -32).isActive = true
-        addButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.7).isActive = true
-        addButton.heightAnchor.constraint(equalToConstant: 55).isActive = true
+        // main stack view that holds all other views
+        let mainStackView = UIStackView(arrangedSubviews: [nameStackView, addButton])
+        mainStackView.distribution = .equalSpacing
+        mainStackView.translatesAutoresizingMaskIntoConstraints = false
+        mainStackView.axis = .vertical
+        
+        addSubview(mainStackView)
+        mainStackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 48).isActive = true
+        mainStackView.topAnchor.constraint(equalTo: topAnchor, constant: 64).isActive = true
+        mainStackView.rightAnchor.constraint(equalTo: rightAnchor, constant: -48).isActive = true
+        mainStackView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
     }
     
     @objc private func handleAdd() {
