@@ -18,7 +18,7 @@ class AddMedicationViewController: UIViewController {
     var delegate: AddMedicationControllerDelegate?
     
     override func loadView() {
-        view = AddMedicationView(addHandler: handleAdd)
+        view = AddMedicationView(addHandler: handleAdd, cancelHandler: handleCancel)
     }
     
     override func viewDidLoad() {
@@ -35,5 +35,9 @@ class AddMedicationViewController: UIViewController {
         dismiss(animated: true) {
             self.delegate?.didAddMedication(medication: medication)
         }
+    }
+    
+    private func handleCancel() {
+        dismiss(animated: true)
     }
 }
