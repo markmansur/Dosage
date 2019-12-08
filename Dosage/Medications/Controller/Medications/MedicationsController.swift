@@ -11,6 +11,8 @@ import UIKit
 class MedicationsController: UICollectionViewController {
     let spacing:CGFloat = 24
     
+    lazy var slideInTransitioningDelegate = SlideInPresentationManager()
+    
     var medications = [Medication]() {
         didSet {
             collectionView.reloadData()
@@ -53,5 +55,12 @@ class MedicationsController: UICollectionViewController {
     @objc private func handleAddMedication() {
         let medication = CoreDataManager.shared.addMedication(name: "Ibuprofen")
         medications.append(medication)
+        
+        let addController = AddMedicationViewController()
+        addController.transitioningDelegate = slideInTransitioningDelegate
+        addController.modalPresentationStyle = .custom
+        
+        present(addController, animated: true, completion: nil)
+        
     }
 }

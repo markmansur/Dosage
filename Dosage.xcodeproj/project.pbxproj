@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6812E2BD239B7812007459C3 /* SlideInPresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6812E2BC239B7812007459C3 /* SlideInPresentationManager.swift */; };
+		6812E2BF239B787F007459C3 /* SlideInPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6812E2BE239B787F007459C3 /* SlideInPresentationController.swift */; };
+		6812E2C1239B79DA007459C3 /* AddMedicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6812E2C0239B79DA007459C3 /* AddMedicationViewController.swift */; };
+		6812E2C4239C55D4007459C3 /* AddMedicationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6812E2C3239C55D4007459C3 /* AddMedicationView.swift */; };
 		68E8C708239A0EF7002281DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E8C707239A0EF7002281DE /* AppDelegate.swift */; };
 		68E8C70A239A0EF7002281DE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E8C709239A0EF7002281DE /* SceneDelegate.swift */; };
 		68E8C70E239A0EF9002281DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68E8C70D239A0EF9002281DE /* Assets.xcassets */; };
@@ -25,6 +29,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6812E2BC239B7812007459C3 /* SlideInPresentationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInPresentationManager.swift; sourceTree = "<group>"; };
+		6812E2BE239B787F007459C3 /* SlideInPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInPresentationController.swift; sourceTree = "<group>"; };
+		6812E2C0239B79DA007459C3 /* AddMedicationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMedicationViewController.swift; sourceTree = "<group>"; };
+		6812E2C3239C55D4007459C3 /* AddMedicationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMedicationView.swift; sourceTree = "<group>"; };
 		68E8C704239A0EF7002281DE /* Dosage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dosage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68E8C707239A0EF7002281DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		68E8C709239A0EF7002281DE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +63,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6812E2BA239B77DF007459C3 /* AddMedication */ = {
+			isa = PBXGroup;
+			children = (
+				6812E2C2239C55BB007459C3 /* View */,
+				6812E2BB239B77EB007459C3 /* Presentation */,
+				6812E2C0239B79DA007459C3 /* AddMedicationViewController.swift */,
+			);
+			path = AddMedication;
+			sourceTree = "<group>";
+		};
+		6812E2BB239B77EB007459C3 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				6812E2BC239B7812007459C3 /* SlideInPresentationManager.swift */,
+				6812E2BE239B787F007459C3 /* SlideInPresentationController.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		6812E2C2239C55BB007459C3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6812E2C3239C55D4007459C3 /* AddMedicationView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		68E8C6FB239A0EF7002281DE = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +135,7 @@
 		68E8C71B239A10E8002281DE /* Medications */ = {
 			isa = PBXGroup;
 			children = (
+				6812E2BA239B77DF007459C3 /* AddMedication */,
 				68E8C72A239A1D85002281DE /* Controller */,
 				68E8C71E239A1341002281DE /* MedicationCell.swift */,
 			);
@@ -216,12 +252,16 @@
 				68E8C72C239A1DBB002281DE /* MedicationsController+UICollectionViewDataSource.swift in Sources */,
 				68E8C71F239A1341002281DE /* MedicationCell.swift in Sources */,
 				68E8C736239ACC9C002281DE /* MedicationController.swift in Sources */,
+				6812E2C4239C55D4007459C3 /* AddMedicationView.swift in Sources */,
 				68E8C708239A0EF7002281DE /* AppDelegate.swift in Sources */,
+				6812E2C1239B79DA007459C3 /* AddMedicationViewController.swift in Sources */,
 				68E8C70A239A0EF7002281DE /* SceneDelegate.swift in Sources */,
 				68E8C722239A17E5002281DE /* UIColor+helpers.swift in Sources */,
 				68E8C733239ACC5C002281DE /* MedicationsController+UICollectionViewDelegate.swift in Sources */,
+				6812E2BD239B7812007459C3 /* SlideInPresentationManager.swift in Sources */,
 				68E8C725239A187D002281DE /* DosageModels.xcdatamodeld in Sources */,
 				68E8C72E239A1E42002281DE /* MedicationsController+UICollectionViewDelegateFlowLayout.swift in Sources */,
+				6812E2BF239B787F007459C3 /* SlideInPresentationController.swift in Sources */,
 				68E8C727239A19E2002281DE /* CoreDataManager.swift in Sources */,
 				68E8C731239A1F30002281DE /* MedicationsNavigationController.swift in Sources */,
 				68E8C71D239A10FD002281DE /* MedicationsController.swift in Sources */,
