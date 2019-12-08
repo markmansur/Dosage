@@ -31,6 +31,9 @@ class AddMedicationViewController: UIViewController {
     }
     
     private func handleAdd(name: String) {
-        print(name)
+        let medication = CoreDataManager.shared.addMedication(name: name)
+        dismiss(animated: true) {
+            self.delegate?.didAddMedication(medication: medication)
+        }
     }
 }

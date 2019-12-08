@@ -53,10 +53,9 @@ class MedicationsController: UICollectionViewController {
     }
     
     @objc private func handleAddMedication() {
-        let medication = CoreDataManager.shared.addMedication(name: "Ibuprofen")
-        medications.append(medication)
         
         let addController = AddMedicationViewController()
+        addController.delegate = self
         addController.transitioningDelegate = slideInTransitioningDelegate
         addController.modalPresentationStyle = .custom
         

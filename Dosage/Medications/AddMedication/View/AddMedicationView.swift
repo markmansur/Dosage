@@ -63,7 +63,7 @@ class AddMedicationView: UIView {
         
         // nameLabel & nameTextField
         let nameStackView = UIStackView(arrangedSubviews: [nameLabel, nameTextField])
-        nameStackView.spacing = 5
+        nameStackView.spacing = 7
         nameStackView.translatesAutoresizingMaskIntoConstraints = false
         nameStackView.axis = .vertical
 
@@ -81,7 +81,9 @@ class AddMedicationView: UIView {
     }
     
     @objc private func handleAdd() {
-        self.addHandler?("Ibuprofen")
+        guard let name = nameTextField.text else { return }
+        
+        self.addHandler?(name)
     }
     
     
