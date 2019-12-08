@@ -29,13 +29,22 @@ class AddMedicationView: UIView {
     }()
     
     init(addHandler: @escaping(_ name: String) -> Void) {
-        self.addHandler = addHandler
         super.init(frame: .zero)
+        self.addHandler = addHandler
+        setupView()
         setupSubViews()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setupView() {
+        backgroundColor = .white
+        
+        layer.cornerRadius = 65
+        clipsToBounds = true
+        layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
     
     private func setupSubViews() {

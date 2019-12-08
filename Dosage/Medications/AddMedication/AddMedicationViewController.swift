@@ -23,15 +23,6 @@ class AddMedicationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
-    }
-    
-    private func setupView() {
-        view.backgroundColor = .white
-        
-        view.layer.cornerRadius = 65
-        view.clipsToBounds = true
-        view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
     
     // MARK: Handlers
