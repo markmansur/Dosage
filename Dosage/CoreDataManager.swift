@@ -33,6 +33,18 @@ struct CoreDataManager {
         }
     }
     
+    func deleteAllMedications() {
+        let fetchRequest: NSFetchRequest<Medication> = Medication.fetchRequest()
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest as! NSFetchRequest<NSFetchRequestResult>)
+        let context = persistentContainer.viewContext
+        
+        do {
+            try context.execute(deleteRequest)
+        } catch let delErr {
+            fatalError("Error deleting medications: \(delErr)")
+        }
+    }
+    
     func addMedication(name: String) -> Medication {
         let context = persistentContainer.viewContext
         
