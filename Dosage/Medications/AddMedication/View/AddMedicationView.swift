@@ -30,11 +30,11 @@ class AddMedicationView: UIView {
         let button = UIButton()
         button.heightAnchor.constraint(equalToConstant: 50).isActive = true
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Add Dosage", for: .normal)
+        button.setTitle("Add Medication", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         button.layer.cornerRadius = 12
-        button.backgroundColor = .green
+        button.backgroundColor = UIColor(named: "darkGreen")
         button.addTarget(self, action: #selector(handleAdd), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button

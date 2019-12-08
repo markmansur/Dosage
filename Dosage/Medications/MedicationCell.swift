@@ -70,7 +70,7 @@ class MedicationCell: UICollectionViewCell {
     }
     
     func highlight() {
-        backgroundColor = UIColor(r: 63, g: 186, b: 115, alpha: 1)
+        backgroundColor = UIColor(named: "darkGreen")
         nameLabel.textColor = .white
     }
     
