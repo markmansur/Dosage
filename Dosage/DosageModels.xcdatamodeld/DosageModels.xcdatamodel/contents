@@ -2,8 +2,9 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14903" systemVersion="19A583" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Medication" representedClassName="Medication" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="shape" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <elements>
-        <element name="Medication" positionX="-63" positionY="-18" width="128" height="58"/>
+        <element name="Medication" positionX="-63" positionY="-18" width="128" height="73"/>
     </elements>
 </model>

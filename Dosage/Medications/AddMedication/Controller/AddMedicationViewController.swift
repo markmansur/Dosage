@@ -36,7 +36,7 @@ class AddMedicationViewController: UIViewController {
     
     private func handleAdd(name: String, shapeIndexPath: IndexPath) {
         let shape = shapes[shapeIndexPath.row]
-        let medication = CoreDataManager.shared.addMedication(name: name)
+        let medication = CoreDataManager.shared.addMedication(name: name, shape: shape)
         dismiss(animated: true) {
             self.delegate?.didAddMedication(medication: medication)
         }
@@ -64,7 +64,7 @@ extension AddMedicationViewController: UICollectionViewDelegate, UICollectionVie
 
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size = 45
+        let size = 50
         return CGSize(width: size, height: size)
     }
     
