@@ -14,7 +14,7 @@ protocol AddMedicationViewDelegate {
 
 class AddMedicationView: UIView {
     // MARK: Properties
-    var addHandler: ((_ name: String) -> Void)?
+    var addHandler: ((_ name: String, _ shapeIndexPath: IndexPath) -> Void)?
     var cancelHandler: (() -> Void)?
     
     let addNewMedicationLabel: UILabel = {
@@ -50,6 +50,27 @@ class AddMedicationView: UIView {
     
     let nameTextField =  AddMedicationTextField()
     
+    let shapesLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Shape"
+        label.font = label.font.withSize(14)
+        label.textColor = .lightGray
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let shapesCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = 16
+        let collectionView = UICollectionView(frame: CGRect.null, collectionViewLayout: layout)
+        collectionView.register(ShapeCell.self, forCellWithReuseIdentifier: "cellId")
+        collectionView.backgroundColor = .clear
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        return collectionView
+    }()
+    
     private let addButton: UIButton = {
         let button = UIButton()
         button.heightAnchor.constraint(equalToConstant: 50).isActive = true
@@ -64,7 +85,7 @@ class AddMedicationView: UIView {
         return button
     }()
     
-    init(addHandler: @escaping(_ name: String) -> Void, cancelHandler: @escaping() -> Void) {
+    init(addHandler: @escaping(_ name: String, _ shapeIndexPath: IndexPath) -> Void, cancelHandler: @escaping() -> Void) {
         super.init(frame: .zero)
         self.addHandler = addHandler
         self.cancelHandler = cancelHandler
@@ -85,27 +106,17 @@ class AddMedicationView: UIView {
     }
     
     private func setupSubViews() {
-        
-        // addNewMedicationLabel
         let headerStackView = UIStackView(arrangedSubviews: [addNewMedicationLabel, cancelButton])
-        
-        // nameLabel & nameTextField
-        let nameStackView = UIStackView(arrangedSubviews: [nameLabel, nameTextField])
-        nameStackView.spacing = 7
-        nameStackView.translatesAutoresizingMaskIntoConstraints = false
-        nameStackView.axis = .vertical
+        let nameStackView = UIStackView(arrangedSubviews: [nameLabel, nameTextField], spacing: 7, axis: .vertical)
+        let shapesStackView = UIStackView(arrangedSubviews: [shapesLabel, shapesCollectionView], spacing: 7, axis: .vertical)
 
-        // main stack view that holds all other views
-        let mainStackView = UIStackView(arrangedSubviews: [headerStackView ,nameStackView])
-        mainStackView.spacing = 40
-        mainStackView.translatesAutoresizingMaskIntoConstraints = false
-        mainStackView.axis = .vertical
+        // main stack view that holds all other  stack views views
+        let mainStackView = UIStackView(arrangedSubviews: [headerStackView, nameStackView, shapesStackView], spacing: 40, axis: .vertical)
         
         addSubview(mainStackView)
         mainStackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 40).isActive = true
         mainStackView.topAnchor.constraint(equalTo: topAnchor, constant: 40).isActive = true
         mainStackView.rightAnchor.constraint(equalTo: rightAnchor, constant: -40).isActive = true
-        
         
         addSubview(addButton)
         addButton.leftAnchor.constraint(equalTo: leftAnchor, constant: 48).isActive = true
@@ -115,8 +126,9 @@ class AddMedicationView: UIView {
     
     @objc private func handleAdd() {
         guard let name = nameTextField.text else { return }
+        guard let selectedShapeIndexPath = shapesCollectionView.indexPathsForSelectedItems?[0] else { return }
         
-        addHandler?(name)
+        addHandler?(name, selectedShapeIndexPath)
     }
     
     @objc private func handleCancel() {
