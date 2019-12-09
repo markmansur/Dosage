@@ -11,9 +11,20 @@ import UIKit
 class MedicationCell: UICollectionViewCell {
     var medication: Medication? {
         didSet {
-            nameLabel.text = medication?.name
+            guard let medication = medication else { return }
+            nameLabel.text = medication.name
+            guard let shape = Shape(rawValue: medication.shape) else { return }
+            shapeImageView.image = shape.image
         }
     }
+    
+    let shapeImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor).isActive = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
     
     let nameLabel: UILabel = {
         let label = UILabel()
@@ -59,8 +70,9 @@ class MedicationCell: UICollectionViewCell {
     }
     
     private func setupSubviews() {
-        let stackView = UIStackView(arrangedSubviews: [nameLabel, timesLeftLabel])
+        let stackView = UIStackView(arrangedSubviews: [shapeImageView, nameLabel, timesLeftLabel])
         stackView.axis = .vertical
+        stackView.alignment = .center
         stackView.spacing = 15
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
