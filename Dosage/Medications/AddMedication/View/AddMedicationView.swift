@@ -67,7 +67,7 @@ class AddMedicationView: UIView {
         collectionView.register(ShapeCell.self, forCellWithReuseIdentifier: "cellId")
         collectionView.backgroundColor = .clear
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        collectionView.heightAnchor.constraint(equalToConstant: 55).isActive = true
         return collectionView
     }()
     
