@@ -8,10 +8,10 @@
 
 import UIKit
 
-enum Shape: CaseIterable {
-    case shape1
-    case shape2
-    case shape3
+enum Shape: Int, CaseIterable {
+    case shape1 = 1
+    case shape2 = 2
+    case shape3 = 3
     
     var image: UIImage? {
         switch self {
