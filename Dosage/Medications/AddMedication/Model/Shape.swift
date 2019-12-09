@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum Shape: Int, CaseIterable {
+enum Shape: Int32, CaseIterable {
     case shape1 = 1
     case shape2 = 2
     case shape3 = 3
