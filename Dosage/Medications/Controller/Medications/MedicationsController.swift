@@ -48,18 +48,22 @@ class MedicationsController: UICollectionViewController {
     }
     
     private func setupNavigationController() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(handleAddMedication))
         navigationItem.title = "Medications"
+        
+        // right plus bar button
+        let config = UIImage.SymbolConfiguration(pointSize: 20, weight: .regular, scale: .large)
+        let plusSymbolImage = UIImage(systemName: "plus.circle", withConfiguration: config)
+        let barButtonItem = UIBarButtonItem(image: plusSymbolImage, style: .plain, target: self, action: #selector(handleAddMedication))
+        barButtonItem.tintColor = .white
+        navigationItem.rightBarButtonItem = barButtonItem
     }
     
     @objc private func handleAddMedication() {
-        
         let addController = AddMedicationViewController()
         addController.delegate = self
         addController.transitioningDelegate = slideInTransitioningDelegate
         addController.modalPresentationStyle = .custom
         
         present(addController, animated: true, completion: nil)
-        
     }
 }

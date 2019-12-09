@@ -20,14 +20,14 @@ class AddMedicationView: UIView {
     let addNewMedicationLabel: UILabel = {
         let label = UILabel()
         label.text = "Add New Medication"
-        label.font = UIFont.boldSystemFont(ofSize: 17)
+        label.font = UIFont.boldSystemFont(ofSize: 19)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     var cancelButton: UIButton = {
         if #available(iOS 13.0, *) {
-            let config = UIImage.SymbolConfiguration(pointSize: 20, weight: .regular, scale: .medium)
+            let config = UIImage.SymbolConfiguration(pointSize: 20, weight: .regular, scale: .large)
             let symbolImage = UIImage(systemName: "xmark.circle", withConfiguration: config)
             let button = UIButton()
             button.setImage(symbolImage, for: .normal)
