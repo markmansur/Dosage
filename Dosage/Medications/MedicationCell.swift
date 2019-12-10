@@ -85,12 +85,14 @@ class MedicationCell: UICollectionViewCell {
         backgroundColor = UIColor(named: "darkGreen")
         nameLabel.textColor = .white
         timesLeftLabel.textColor = .white
+        shapeImageView.image = shapeImageView.image?.withTintColor(.white)
     }
     
     func unHighlight() {
         backgroundColor = .white
         nameLabel.textColor = UIColor(r: 50, g: 160, b: 96, alpha: 0.98)
         timesLeftLabel.textColor = .lightGray
+        shapeImageView.image = shapeImageView.image?.withTintColor(UIColor(named: "darkGreen") ?? UIColor.green)
     }
     
     
