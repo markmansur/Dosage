@@ -138,7 +138,6 @@
 		68E8C706239A0EF7002281DE /* Dosage */ = {
 			isa = PBXGroup;
 			children = (
-				68E8C734239ACC8F002281DE /* Medication */,
 				68E8C723239A187D002281DE /* DosageModels.xcdatamodeld */,
 				68E8C720239A17CB002281DE /* Extensions */,
 				68E8C71B239A10E8002281DE /* Medications */,
@@ -164,8 +163,9 @@
 		68E8C71B239A10E8002281DE /* Medications */ = {
 			isa = PBXGroup;
 			children = (
-				6812E2BA239B77DF007459C3 /* AddMedication */,
 				68E8C72A239A1D85002281DE /* Controller */,
+				6812E2BA239B77DF007459C3 /* AddMedication */,
+				68E8C734239ACC8F002281DE /* Medication */,
 				68E8C71E239A1341002281DE /* MedicationCell.swift */,
 			);
 			path = Medications;
