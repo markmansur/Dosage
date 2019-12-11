@@ -26,24 +26,9 @@ class MedicationCell: UICollectionViewCell {
         return imageView
     }()
     
-    let nameLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 14)
-        label.textColor = UIColor(r: 50, g: 160, b: 96, alpha: 0.98)
-        label.textAlignment = .center
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    let nameLabel = UILabel(textColor: UIColor(r: 50, g: 160, b: 96, alpha: 0.98), font: .boldSystemFont(ofSize: 14), textAlignment: .center)
     
-    let timesLeftLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 12)
-        label.textColor = UIColor.lightGray
-        label.text = "3 more times today"
-        label.textAlignment = .center
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    let timesLeftLabel = UILabel(text: "3 more times today", textColor: .lightGray, font: .boldSystemFont(ofSize: 12), textAlignment: .center)
     
     override init(frame: CGRect) {
         super.init(frame: frame)

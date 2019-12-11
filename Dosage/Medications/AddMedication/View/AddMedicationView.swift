@@ -17,13 +17,7 @@ class AddMedicationView: UIView {
     var addHandler: ((_ name: String, _ shapeIndexPath: IndexPath) -> Void)?
     var cancelHandler: (() -> Void)?
     
-    let addNewMedicationLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Add New Medication"
-        label.font = UIFont.boldSystemFont(ofSize: 19)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    let addNewMedicationLabel = UILabel(text: "Add New medication", font: .boldSystemFont(ofSize: 19))
     
     var cancelButton: UIButton = {
         if #available(iOS 13.0, *) {
@@ -39,25 +33,11 @@ class AddMedicationView: UIView {
         }
     }()
     
-    let nameLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Name"
-        label.font = label.font.withSize(14)
-        label.textColor = .lightGray
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    let nameLabel = UILabel(text: "Name", textColor: .lightGray, font: .systemFont(ofSize: 14))
     
     let nameTextField =  AddMedicationTextField()
     
-    let shapesLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Shape"
-        label.font = label.font.withSize(14)
-        label.textColor = .lightGray
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    let shapesLabel = UILabel(text: "Shape", textColor: .lightGray, font: .systemFont(ofSize: 14))
     
     let shapesCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
