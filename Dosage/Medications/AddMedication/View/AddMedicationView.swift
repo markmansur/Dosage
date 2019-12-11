@@ -14,12 +14,12 @@ protocol AddMedicationViewDelegate {
 
 class AddMedicationView: UIView {
     // MARK: Properties
-    var addHandler: ((_ name: String, _ shapeIndexPath: IndexPath) -> Void)?
-    var cancelHandler: (() -> Void)?
+    private var addHandler: ((_ name: String, _ shapeIndexPath: IndexPath) -> Void)?
+    private var cancelHandler: (() -> Void)?
     
-    let addNewMedicationLabel = UILabel(text: "Add New medication", font: .boldSystemFont(ofSize: 19))
+    private let addNewMedicationLabel = UILabel(text: "Add New medication", font: .boldSystemFont(ofSize: 19))
     
-    var cancelButton: UIButton = {
+    private var cancelButton: UIButton = {
         if #available(iOS 13.0, *) {
             let config = UIImage.SymbolConfiguration(pointSize: 20, weight: .regular, scale: .large)
             let symbolImage = UIImage(systemName: "xmark.circle", withConfiguration: config)
@@ -33,11 +33,11 @@ class AddMedicationView: UIView {
         }
     }()
     
-    let nameLabel = UILabel(text: "Name", textColor: .lightGray, font: .systemFont(ofSize: 14))
+    private let nameLabel = UILabel(text: "Name", textColor: .lightGray, font: .systemFont(ofSize: 14))
     
-    let nameTextField =  AddMedicationTextField()
+    private let nameTextField =  AddMedicationTextField()
     
-    let shapesLabel = UILabel(text: "Shape", textColor: .lightGray, font: .systemFont(ofSize: 14))
+    private let shapesLabel = UILabel(text: "Shape", textColor: .lightGray, font: .systemFont(ofSize: 14))
     
     let shapesCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
