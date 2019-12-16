@@ -80,7 +80,6 @@
 		6812E2BA239B77DF007459C3 /* AddMedication */ = {
 			isa = PBXGroup;
 			children = (
-				6884248323A0A963009C4659 /* DatePicker */,
 				68765BCE239ECD4600F15D8F /* Controller */,
 				6812E2CE239E1C16007459C3 /* Model */,
 				6812E2C2239C55BB007459C3 /* View */,
@@ -123,13 +122,6 @@
 				6812E2C0239B79DA007459C3 /* AddMedicationViewController.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		6884248323A0A963009C4659 /* DatePicker */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = DatePicker;
 			sourceTree = "<group>";
 		};
 		68E8C6FB239A0EF7002281DE = {
