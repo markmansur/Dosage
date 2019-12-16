@@ -14,12 +14,12 @@ protocol AddMedicationViewDelegate {
 
 class AddMedicationView: UIView {
     // MARK: Properties
-    var addHandler: ((_ name: String, _ shapeIndexPath: IndexPath) -> Void)?
-    var cancelHandler: (() -> Void)?
+    private var addHandler: ((_ name: String, _ shapeIndexPath: IndexPath, _ startDate: Date, _ endDate: Date) -> Void)?
+    private var cancelHandler: (() -> Void)?
     
-    let addNewMedicationLabel = UILabel(text: "Add New medication", font: .boldSystemFont(ofSize: 19))
+    private let addNewMedicationLabel = UILabel(text: "Add New medication", font: .boldSystemFont(ofSize: 19))
     
-    var cancelButton: UIButton = {
+    private var cancelButton: UIButton = {
         if #available(iOS 13.0, *) {
             let config = UIImage.SymbolConfiguration(pointSize: 20, weight: .regular, scale: .large)
             let symbolImage = UIImage(systemName: "xmark.circle", withConfiguration: config)
@@ -33,11 +33,22 @@ class AddMedicationView: UIView {
         }
     }()
     
-    let nameLabel = UILabel(text: "Name", textColor: .lightGray, font: .systemFont(ofSize: 14))
+    private let nameLabel = UILabel(text: "Name", textColor: .lightGray, font: .systemFont(ofSize: 14))
     
-    let nameTextField =  AddMedicationTextField()
+    private let nameTextField =  AddMedicationTextField()
     
-    let shapesLabel = UILabel(text: "Shape", textColor: .lightGray, font: .systemFont(ofSize: 14))
+    lazy var datePickerHeaderView = DatePickerHeaderView()
+    
+    let datePicker: UIDatePicker = {
+        let picker = UIDatePicker()
+        picker.datePickerMode = .date
+        picker.isHidden = true
+        picker.translatesAutoresizingMaskIntoConstraints = false
+        picker.heightAnchor.constraint(equalToConstant: 90).isActive = true
+        return picker
+    }()
+    
+    private let shapesLabel = UILabel(text: "Shape", textColor: .lightGray, font: .systemFont(ofSize: 14))
     
     let shapesCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -65,7 +76,7 @@ class AddMedicationView: UIView {
         return button
     }()
     
-    init(addHandler: @escaping(_ name: String, _ shapeIndexPath: IndexPath) -> Void, cancelHandler: @escaping() -> Void) {
+    init(addHandler: @escaping(_ name: String, _ shapeIndexPath: IndexPath, _ startDate: Date, _ endDate: Date) -> Void, cancelHandler: @escaping() -> Void) {
         super.init(frame: .zero)
         self.addHandler = addHandler
         self.cancelHandler = cancelHandler
@@ -86,12 +97,14 @@ class AddMedicationView: UIView {
     }
     
     private func setupSubViews() {
+        datePickerHeaderView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
         let headerStackView = UIStackView(arrangedSubviews: [addNewMedicationLabel, cancelButton])
         let nameStackView = UIStackView(arrangedSubviews: [nameLabel, nameTextField], spacing: 7, axis: .vertical)
         let shapesStackView = UIStackView(arrangedSubviews: [shapesLabel, shapesCollectionView], spacing: 7, axis: .vertical)
 
         // main stack view that holds all other  stack views views
-        let mainStackView = UIStackView(arrangedSubviews: [headerStackView, nameStackView, shapesStackView], spacing: 40, axis: .vertical)
+        let mainStackView = UIStackView(arrangedSubviews: [headerStackView, nameStackView, datePickerHeaderView, datePicker, shapesStackView], spacing: 40, axis: .vertical)
         
         addSubview(mainStackView)
         mainStackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 40).isActive = true
@@ -104,11 +117,38 @@ class AddMedicationView: UIView {
         addButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
     }
     
+    func showDatePicker() {
+        switch datePickerHeaderView.selectedState {
+        case .left:
+            guard let leftDate = datePickerHeaderView.leftDate else { break }
+            datePicker.date = leftDate
+        case .right:
+            guard let rightDate = datePickerHeaderView.rightDate else { break }
+            datePicker.date = rightDate
+        case .none:
+            break
+        }
+        
+        // show picker animation
+        UIView.animate(withDuration: 0.5) {
+            self.datePicker.isHidden = false
+        }
+    }
+    
+    func hideDatePicker() {
+        // hide picker animation
+        UIView.animate(withDuration: 0.5) {
+            self.datePicker.isHidden = true
+        }
+    }
+    
     @objc private func handleAdd() {
         guard let name = nameTextField.text else { return }
         guard let selectedShapeIndexPath = shapesCollectionView.indexPathsForSelectedItems?[0] else { return }
+        guard let startDate = datePickerHeaderView.leftDate else { return }
+        guard let endDate = datePickerHeaderView.rightDate else { return }
         
-        addHandler?(name, selectedShapeIndexPath)
+        addHandler?(name, selectedShapeIndexPath, startDate, endDate)
     }
     
     @objc private func handleCancel() {

@@ -45,12 +45,14 @@ struct CoreDataManager {
         }
     }
     
-    func addMedication(name: String, shape: Shape) -> Medication {
+    func addMedication(name: String, shape: Shape, startDate: Date, endDate: Date) -> Medication {
         let context = persistentContainer.viewContext
         
         let medication = Medication(context: context)
         medication.name = name
         medication.shape = shape.rawValue
+        medication.startDate = startDate
+        medication.endDate = endDate
         
         do {
             try context.save()
