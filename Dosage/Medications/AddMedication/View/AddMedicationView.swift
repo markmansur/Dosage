@@ -37,6 +37,17 @@ class AddMedicationView: UIView {
     
     private let nameTextField =  AddMedicationTextField()
     
+    lazy var datePickerHeaderView = DatePickerHeaderView()
+    
+    let datePicker: UIDatePicker = {
+        let picker = UIDatePicker()
+        picker.datePickerMode = .date
+        picker.isHidden = true
+        picker.translatesAutoresizingMaskIntoConstraints = false
+        picker.heightAnchor.constraint(equalToConstant: 90).isActive = true
+        return picker
+    }()
+    
     private let shapesLabel = UILabel(text: "Shape", textColor: .lightGray, font: .systemFont(ofSize: 14))
     
     let shapesCollectionView: UICollectionView = {
@@ -86,12 +97,14 @@ class AddMedicationView: UIView {
     }
     
     private func setupSubViews() {
+        datePickerHeaderView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
         let headerStackView = UIStackView(arrangedSubviews: [addNewMedicationLabel, cancelButton])
         let nameStackView = UIStackView(arrangedSubviews: [nameLabel, nameTextField], spacing: 7, axis: .vertical)
         let shapesStackView = UIStackView(arrangedSubviews: [shapesLabel, shapesCollectionView], spacing: 7, axis: .vertical)
 
         // main stack view that holds all other  stack views views
-        let mainStackView = UIStackView(arrangedSubviews: [headerStackView, nameStackView, shapesStackView], spacing: 40, axis: .vertical)
+        let mainStackView = UIStackView(arrangedSubviews: [headerStackView, nameStackView, datePickerHeaderView, datePicker, shapesStackView], spacing: 40, axis: .vertical)
         
         addSubview(mainStackView)
         mainStackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 40).isActive = true
@@ -102,6 +115,31 @@ class AddMedicationView: UIView {
         addButton.leftAnchor.constraint(equalTo: leftAnchor, constant: 48).isActive = true
         addButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -48).isActive = true
         addButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
+    }
+    
+    func showDatePicker() {
+        switch datePickerHeaderView.selectedState {
+        case .left:
+            guard let leftDate = datePickerHeaderView.leftDate else { break }
+            datePicker.date = leftDate
+        case .right:
+            guard let rightDate = datePickerHeaderView.rightDate else { break }
+            datePicker.date = rightDate
+        case .none:
+            break
+        }
+        
+        // show picker animation
+        UIView.animate(withDuration: 0.5) {
+            self.datePicker.isHidden = false
+        }
+    }
+    
+    func hideDatePicker() {
+        // hide picker animation
+        UIView.animate(withDuration: 0.5) {
+            self.datePicker.isHidden = true
+        }
     }
     
     @objc private func handleAdd() {

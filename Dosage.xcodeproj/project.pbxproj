@@ -17,6 +17,7 @@
 		6812E2CD239E1A9E007459C3 /* UIStackView+helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6812E2CC239E1A9E007459C3 /* UIStackView+helpers.swift */; };
 		6812E2D0239E1C23007459C3 /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6812E2CF239E1C23007459C3 /* Shape.swift */; };
 		6858FFF623A0950D00EA8DA8 /* UILabel+helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6858FFF523A0950D00EA8DA8 /* UILabel+helpers.swift */; };
+		68C6393823A1CA9A00C8CD6C /* DatePickerHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C6393723A1CA9A00C8CD6C /* DatePickerHeaderView.swift */; };
 		68E8C708239A0EF7002281DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E8C707239A0EF7002281DE /* AppDelegate.swift */; };
 		68E8C70A239A0EF7002281DE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E8C709239A0EF7002281DE /* SceneDelegate.swift */; };
 		68E8C70E239A0EF9002281DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68E8C70D239A0EF9002281DE /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 		6812E2CC239E1A9E007459C3 /* UIStackView+helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+helpers.swift"; sourceTree = "<group>"; };
 		6812E2CF239E1C23007459C3 /* Shape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
 		6858FFF523A0950D00EA8DA8 /* UILabel+helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+helpers.swift"; sourceTree = "<group>"; };
+		68C6393723A1CA9A00C8CD6C /* DatePickerHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerHeaderView.swift; sourceTree = "<group>"; };
 		68E8C704239A0EF7002281DE /* Dosage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dosage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68E8C707239A0EF7002281DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		68E8C709239A0EF7002281DE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 		6812E2BA239B77DF007459C3 /* AddMedication */ = {
 			isa = PBXGroup;
 			children = (
+				6884248323A0A963009C4659 /* DatePicker */,
 				68765BCE239ECD4600F15D8F /* Controller */,
 				6812E2CE239E1C16007459C3 /* Model */,
 				6812E2C2239C55BB007459C3 /* View */,
@@ -97,6 +100,7 @@
 		6812E2C2239C55BB007459C3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				68C6393723A1CA9A00C8CD6C /* DatePickerHeaderView.swift */,
 				6812E2C3239C55D4007459C3 /* AddMedicationView.swift */,
 				6812E2C5239D75AF007459C3 /* AddMedicationTextField.swift */,
 				6812E2CA239E025B007459C3 /* ShapeCell.swift */,
@@ -119,6 +123,13 @@
 				6812E2C0239B79DA007459C3 /* AddMedicationViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		6884248323A0A963009C4659 /* DatePicker */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DatePicker;
 			sourceTree = "<group>";
 		};
 		68E8C6FB239A0EF7002281DE = {
@@ -303,6 +314,7 @@
 				6812E2C9239D7FA0007459C3 /* MedicationsController+AddMedicationControllerDelegate.swift in Sources */,
 				68E8C727239A19E2002281DE /* CoreDataManager.swift in Sources */,
 				6812E2CD239E1A9E007459C3 /* UIStackView+helpers.swift in Sources */,
+				68C6393823A1CA9A00C8CD6C /* DatePickerHeaderView.swift in Sources */,
 				68E8C731239A1F30002281DE /* MedicationsNavigationController.swift in Sources */,
 				68E8C71D239A10FD002281DE /* MedicationsController.swift in Sources */,
 			);

@@ -22,6 +22,8 @@ class AddMedicationViewController: UIViewController {
         let addMedicationView = AddMedicationView(addHandler: handleAdd, cancelHandler: handleCancel)
         addMedicationView.shapesCollectionView.delegate = self
         addMedicationView.shapesCollectionView.dataSource = self
+        addMedicationView.datePickerHeaderView.delegate = self
+        addMedicationView.datePicker.addTarget(self, action: #selector(handleDateChange(sender:)), for: .valueChanged)
         view = addMedicationView
     }
     
@@ -45,6 +47,20 @@ class AddMedicationViewController: UIViewController {
     private func handleCancel() {
         dismiss(animated: true)
     }
+    
+    @objc private func handleDateChange(sender: UIDatePicker) {
+        guard let addMedicationView = view as? AddMedicationView else { return }
+        let date = addMedicationView.datePicker.date
+        
+        switch addMedicationView.datePickerHeaderView.selectedState {
+            case .left:
+                addMedicationView.datePickerHeaderView.leftDate = date
+            case .right:
+                addMedicationView.datePickerHeaderView.rightDate = date
+            case .none:
+                break
+        }
+    }
 }
 
 extension AddMedicationViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -61,7 +77,6 @@ extension AddMedicationViewController: UICollectionViewDelegate, UICollectionVie
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let size = 50
@@ -76,5 +91,21 @@ extension AddMedicationViewController: UICollectionViewDelegate, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? ShapeCell else { return }
         cell.unHighlight()
+    }
+}
+
+extension AddMedicationViewController: DatePickerHeaderViewDelegate {
+    
+    func headerStateDidChange(state: SelectedState) {
+        guard let addMedicationView = view as? AddMedicationView else { return }
+        
+        switch state {
+            case .left:
+                addMedicationView.showDatePicker()
+            case .right:
+                addMedicationView.showDatePicker()
+            case .none:
+                addMedicationView.hideDatePicker()
+        }
     }
 }
