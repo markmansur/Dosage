@@ -36,9 +36,9 @@ class AddMedicationViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    private func handleAdd(name: String, shapeIndexPath: IndexPath) {
+    private func handleAdd(name: String, shapeIndexPath: IndexPath, startDate: Date, endDate: Date) {
         let shape = shapes[shapeIndexPath.row]
-        let medication = CoreDataManager.shared.addMedication(name: name, shape: shape)
+        let medication = CoreDataManager.shared.addMedication(name: name, shape: shape, startDate: startDate, endDate: endDate)
         dismiss(animated: true) {
             self.delegate?.didAddMedication(medication: medication)
         }

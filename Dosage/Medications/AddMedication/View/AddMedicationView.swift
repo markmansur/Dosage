@@ -14,7 +14,7 @@ protocol AddMedicationViewDelegate {
 
 class AddMedicationView: UIView {
     // MARK: Properties
-    private var addHandler: ((_ name: String, _ shapeIndexPath: IndexPath) -> Void)?
+    private var addHandler: ((_ name: String, _ shapeIndexPath: IndexPath, _ startDate: Date, _ endDate: Date) -> Void)?
     private var cancelHandler: (() -> Void)?
     
     private let addNewMedicationLabel = UILabel(text: "Add New medication", font: .boldSystemFont(ofSize: 19))
@@ -76,7 +76,7 @@ class AddMedicationView: UIView {
         return button
     }()
     
-    init(addHandler: @escaping(_ name: String, _ shapeIndexPath: IndexPath) -> Void, cancelHandler: @escaping() -> Void) {
+    init(addHandler: @escaping(_ name: String, _ shapeIndexPath: IndexPath, _ startDate: Date, _ endDate: Date) -> Void, cancelHandler: @escaping() -> Void) {
         super.init(frame: .zero)
         self.addHandler = addHandler
         self.cancelHandler = cancelHandler
@@ -145,8 +145,10 @@ class AddMedicationView: UIView {
     @objc private func handleAdd() {
         guard let name = nameTextField.text else { return }
         guard let selectedShapeIndexPath = shapesCollectionView.indexPathsForSelectedItems?[0] else { return }
+        guard let startDate = datePickerHeaderView.leftDate else { return }
+        guard let endDate = datePickerHeaderView.rightDate else { return }
         
-        addHandler?(name, selectedShapeIndexPath)
+        addHandler?(name, selectedShapeIndexPath, startDate, endDate)
     }
     
     @objc private func handleCancel() {
