@@ -33,9 +33,7 @@ class AddMedicationView: UIView {
         }
     }()
     
-    private let nameLabel = UILabel(text: "Name", textColor: .lightGray, font: .systemFont(ofSize: 14))
-    
-    private let nameTextField =  AddMedicationTextField()
+    private let nameTextField =  AddMedicationTextField(placeholder: "Name")
     
     lazy var datePickerHeaderView = DatePickerHeaderView()
     
@@ -100,11 +98,10 @@ class AddMedicationView: UIView {
         datePickerHeaderView.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         let headerStackView = UIStackView(arrangedSubviews: [addNewMedicationLabel, cancelButton])
-        let nameStackView = UIStackView(arrangedSubviews: [nameLabel, nameTextField], spacing: 7, axis: .vertical)
         let shapesStackView = UIStackView(arrangedSubviews: [shapesLabel, shapesCollectionView], spacing: 7, axis: .vertical)
 
         // main stack view that holds all other  stack views views
-        let mainStackView = UIStackView(arrangedSubviews: [headerStackView, nameStackView, datePickerHeaderView, datePicker, shapesStackView], spacing: 40, axis: .vertical)
+        let mainStackView = UIStackView(arrangedSubviews: [headerStackView, nameTextField, datePickerHeaderView, datePicker, shapesStackView], spacing: 40, axis: .vertical)
         
         addSubview(mainStackView)
         mainStackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 40).isActive = true

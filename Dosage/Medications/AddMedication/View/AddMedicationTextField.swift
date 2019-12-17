@@ -26,8 +26,9 @@ class AddMedicationTextField: UITextField {
         setupUnderline()
     }
 
-    convenience init() {
+    convenience init(placeholder: String? = nil) {
         self.init(frame:CGRect.zero)
+        self.placeholder = placeholder
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -47,6 +48,10 @@ class AddMedicationTextField: UITextField {
     }
 
     override func textRect(forBounds bounds: CGRect) -> CGRect {
-        return bounds.insetBy(dx: 0, dy: 1)
+        return bounds.insetBy(dx: 0, dy: 7)
+    }
+    
+    override func editingRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.insetBy(dx: 0, dy: 7)
     }
 }
