@@ -18,6 +18,11 @@ class AddMedicationView: UIView {
     private var cancelHandler: (() -> Void)?
     
     private let addNewMedicationLabel = UILabel(text: "Add New medication", font: .boldSystemFont(ofSize: 19))
+    private let shapesLabel = UILabel(text: "Shape", textColor: .lightGray, font: .systemFont(ofSize: 14))
+    private let repeatLabel = UILabel(text: "Repeat", textColor: .lightGray, font: .systemFont(ofSize: 14))
+    
+    private let nameTextField =  AddMedicationTextField(placeholder: "Name")
+    private let datePickerHeaderView = DatePickerHeaderView()
     
     private var cancelButton: UIButton = {
         if #available(iOS 13.0, *) {
@@ -33,33 +38,6 @@ class AddMedicationView: UIView {
         }
     }()
     
-    private let nameTextField =  AddMedicationTextField(placeholder: "Name")
-    
-    lazy var datePickerHeaderView = DatePickerHeaderView()
-    
-    let datePicker: UIDatePicker = {
-        let picker = UIDatePicker()
-        picker.datePickerMode = .date
-        picker.isHidden = true
-        picker.translatesAutoresizingMaskIntoConstraints = false
-        picker.heightAnchor.constraint(equalToConstant: 90).isActive = true
-        return picker
-    }()
-    
-    private let shapesLabel = UILabel(text: "Shape", textColor: .lightGray, font: .systemFont(ofSize: 14))
-    
-    let shapesCollectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        layout.minimumLineSpacing = 16
-        let collectionView = UICollectionView(frame: CGRect.null, collectionViewLayout: layout)
-        collectionView.register(ShapeCell.self, forCellWithReuseIdentifier: "cellId")
-        collectionView.backgroundColor = .clear
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.heightAnchor.constraint(equalToConstant: 55).isActive = true
-        return collectionView
-    }()
-    
     private let addButton: UIButton = {
         let button = UIButton()
         button.heightAnchor.constraint(equalToConstant: 50).isActive = true
@@ -72,6 +50,27 @@ class AddMedicationView: UIView {
         button.addTarget(self, action: #selector(handleAdd), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
+    }()
+    
+    let datePicker: UIDatePicker = {
+        let picker = UIDatePicker()
+        picker.datePickerMode = .date
+        picker.isHidden = true
+        picker.translatesAutoresizingMaskIntoConstraints = false
+        picker.heightAnchor.constraint(equalToConstant: 90).isActive = true
+        return picker
+    }()
+    
+    let shapesCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = 16
+        let collectionView = UICollectionView(frame: CGRect.null, collectionViewLayout: layout)
+        collectionView.register(ShapeCell.self, forCellWithReuseIdentifier: "cellId")
+        collectionView.backgroundColor = .clear
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.heightAnchor.constraint(equalToConstant: 55).isActive = true
+        return collectionView
     }()
     
     init(addHandler: @escaping(_ name: String, _ shapeIndexPath: IndexPath, _ startDate: Date, _ endDate: Date) -> Void, cancelHandler: @escaping() -> Void) {
