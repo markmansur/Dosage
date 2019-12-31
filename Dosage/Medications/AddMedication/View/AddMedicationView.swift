@@ -19,10 +19,11 @@ class AddMedicationView: UIView {
     
     private let addNewMedicationLabel = UILabel(text: "Add New medication", font: .boldSystemFont(ofSize: 19))
     private let shapesLabel = UILabel(text: "Shape", textColor: .lightGray, font: .systemFont(ofSize: 14))
-    private let repeatLabel = UILabel(text: "Repeat", textColor: .lightGray, font: .systemFont(ofSize: 14))
+    private let dosageLabel = UILabel(text: "Dosage", textColor: .lightGray, font: .systemFont(ofSize: 14))
+    private let dosageSubtext = UILabel(text: "You have a dosage every day.", textColor: .lightGray, font: .systemFont(ofSize: 12))
     
     private let nameTextField =  AddMedicationTextField(placeholder: "Name")
-    private let datePickerHeaderView = DatePickerHeaderView()
+    let datePickerHeaderView = DatePickerHeaderView()
     
     private var cancelButton: UIButton = {
         if #available(iOS 13.0, *) {
@@ -72,6 +73,19 @@ class AddMedicationView: UIView {
         collectionView.heightAnchor.constraint(equalToConstant: 55).isActive = true
         return collectionView
     }()
+        
+    let dosageSegmentedControl: UISegmentedControl = {
+        let sc = UISegmentedControl()
+        sc.insertSegment(withTitle: "Daily", at: 0, animated: true)
+        sc.insertSegment(withTitle: "Custom", at: 1, animated: true)
+        sc.selectedSegmentTintColor = UIColor(named: "darkGreen")
+        sc.selectedSegmentIndex = 0
+        sc.setTitleTextAttributes([.font: UIFont.boldSystemFont(ofSize: 14),
+                                   .foregroundColor: UIColor.white], for: .selected)
+        sc.setTitleTextAttributes([.font: UIFont.boldSystemFont(ofSize: 14),
+                                   .foregroundColor: UIColor(named: "darkGreen") ?? .green], for: .normal)
+        return sc
+    }()
     
     init(addHandler: @escaping(_ name: String, _ shapeIndexPath: IndexPath, _ startDate: Date, _ endDate: Date) -> Void, cancelHandler: @escaping() -> Void) {
         super.init(frame: .zero)
@@ -98,9 +112,10 @@ class AddMedicationView: UIView {
         
         let headerStackView = UIStackView(arrangedSubviews: [addNewMedicationLabel, cancelButton])
         let shapesStackView = UIStackView(arrangedSubviews: [shapesLabel, shapesCollectionView], spacing: 7, axis: .vertical)
+        let dosageStackView = UIStackView(arrangedSubviews: [dosageLabel, dosageSegmentedControl, dosageSubtext], spacing: 10, axis: .vertical)
 
         // main stack view that holds all other  stack views views
-        let mainStackView = UIStackView(arrangedSubviews: [headerStackView, nameTextField, datePickerHeaderView, datePicker, shapesStackView], spacing: 40, axis: .vertical)
+        let mainStackView = UIStackView(arrangedSubviews: [headerStackView, nameTextField, datePickerHeaderView, datePicker, shapesStackView, dosageStackView], spacing: 40, axis: .vertical)
         
         addSubview(mainStackView)
         mainStackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 40).isActive = true
