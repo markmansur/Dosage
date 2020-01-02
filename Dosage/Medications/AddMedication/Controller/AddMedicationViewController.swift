@@ -21,8 +21,9 @@ class AddMedicationViewController: UIViewController {
     var addMedicationView: AddMedicationView?
     
     override func loadView() {
-        let addMedicationView = AddMedicationView(addHandler: handleAdd)
+        let addMedicationView = AddMedicationView()
         addMedicationView.cancelButton.addTarget(self, action: #selector(handleCancel), for: .touchUpInside)
+        addMedicationView.addButton.addTarget(self, action: #selector(handleAdd), for: .touchUpInside)
         
         addMedicationView.shapesCollectionView.delegate = self
         addMedicationView.shapesCollectionView.dataSource = self
@@ -44,8 +45,13 @@ class AddMedicationViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    private func handleAdd(name: String, shapeIndexPath: IndexPath, startDate: Date, endDate: Date) {
-        let shape = shapes[shapeIndexPath.row]
+    @objc private func handleAdd() {
+        guard let name = addMedicationView?.nameTextField.text else { return }
+        guard let selectedShapeIndexPath = addMedicationView?.shapesCollectionView.indexPathsForSelectedItems?[0] else { return }
+        guard let startDate = addMedicationView?.datePickerHeaderView.leftDate else { return }
+        guard let endDate = addMedicationView?.datePickerHeaderView.rightDate else { return }
+        
+        let shape = shapes[selectedShapeIndexPath.row]
         let medication = CoreDataManager.shared.addMedication(name: name, shape: shape, startDate: startDate, endDate: endDate)
         dismiss(animated: true) {
             self.delegate?.didAddMedication(medication: medication)

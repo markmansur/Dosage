@@ -14,15 +14,12 @@ protocol AddMedicationViewDelegate {
 
 class AddMedicationView: UIView {
     // MARK: Properties
-    private var addHandler: ((_ name: String, _ shapeIndexPath: IndexPath, _ startDate: Date, _ endDate: Date) -> Void)?
-    private var cancelHandler: (() -> Void)?
-    
     private let addNewMedicationLabel = UILabel(text: "Add New medication", font: .boldSystemFont(ofSize: 19))
     private let shapesLabel = UILabel(text: "Shape", textColor: .lightGray, font: .systemFont(ofSize: 14))
     private let dosageLabel = UILabel(text: "Dosage", textColor: .lightGray, font: .systemFont(ofSize: 14))
     let dosageSubtextLabel = UILabel(text: "You have a dosage every day.", textColor: .lightGray, font: .systemFont(ofSize: 12))
     
-    private let nameTextField =  AddMedicationTextField(placeholder: "Name")
+    let nameTextField =  AddMedicationTextField(placeholder: "Name")
     let datePickerHeaderView = DatePickerHeaderView()
     
     var cancelButton: UIButton = {
@@ -38,7 +35,7 @@ class AddMedicationView: UIView {
         }
     }()
     
-    private let addButton: UIButton = {
+    let addButton: UIButton = {
         let button = UIButton()
         button.heightAnchor.constraint(equalToConstant: 50).isActive = true
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -47,7 +44,6 @@ class AddMedicationView: UIView {
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         button.layer.cornerRadius = 12
         button.backgroundColor = UIColor(named: "darkGreen")
-        button.addTarget(self, action: #selector(handleAdd), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -101,9 +97,8 @@ class AddMedicationView: UIView {
         return collectionView
     }()
     
-    init(addHandler: @escaping(_ name: String, _ shapeIndexPath: IndexPath, _ startDate: Date, _ endDate: Date) -> Void) {
+    init() {
         super.init(frame: .zero)
-        self.addHandler = addHandler
         setupView()
         setupSubViews()
     }
@@ -164,14 +159,5 @@ class AddMedicationView: UIView {
         UIView.animate(withDuration: 0.5) {
             self.datePicker.isHidden = true
         }
-    }
-    
-    @objc private func handleAdd() {
-        guard let name = nameTextField.text else { return }
-        guard let selectedShapeIndexPath = shapesCollectionView.indexPathsForSelectedItems?[0] else { return }
-        guard let startDate = datePickerHeaderView.leftDate else { return }
-        guard let endDate = datePickerHeaderView.rightDate else { return }
-        
-        addHandler?(name, selectedShapeIndexPath, startDate, endDate)
     }
 }
