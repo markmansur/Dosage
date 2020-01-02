@@ -20,7 +20,7 @@ class AddMedicationView: UIView {
     private let addNewMedicationLabel = UILabel(text: "Add New medication", font: .boldSystemFont(ofSize: 19))
     private let shapesLabel = UILabel(text: "Shape", textColor: .lightGray, font: .systemFont(ofSize: 14))
     private let dosageLabel = UILabel(text: "Dosage", textColor: .lightGray, font: .systemFont(ofSize: 14))
-    private let dosageSubtext = UILabel(text: "You have a dosage every day.", textColor: .lightGray, font: .systemFont(ofSize: 12))
+    let dosageSubtextLabel = UILabel(text: "You have a dosage every day.", textColor: .lightGray, font: .systemFont(ofSize: 12))
     
     private let nameTextField =  AddMedicationTextField(placeholder: "Name")
     let datePickerHeaderView = DatePickerHeaderView()
@@ -87,6 +87,21 @@ class AddMedicationView: UIView {
         return sc
     }()
     
+    let daysSelectorCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = 10
+        let collectionView = UICollectionView(frame: .null, collectionViewLayout: layout)
+        collectionView.isHidden = true
+        collectionView.allowsMultipleSelection = true
+        collectionView.backgroundColor = .clear
+        collectionView.layer.masksToBounds = false
+        collectionView.register(DayOfWeekCell.self, forCellWithReuseIdentifier: "cellId")
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        return collectionView
+    }()
+    
     init(addHandler: @escaping(_ name: String, _ shapeIndexPath: IndexPath, _ startDate: Date, _ endDate: Date) -> Void, cancelHandler: @escaping() -> Void) {
         super.init(frame: .zero)
         self.addHandler = addHandler
@@ -112,10 +127,10 @@ class AddMedicationView: UIView {
         
         let headerStackView = UIStackView(arrangedSubviews: [addNewMedicationLabel, cancelButton])
         let shapesStackView = UIStackView(arrangedSubviews: [shapesLabel, shapesCollectionView], spacing: 7, axis: .vertical)
-        let dosageStackView = UIStackView(arrangedSubviews: [dosageLabel, dosageSegmentedControl, dosageSubtext], spacing: 10, axis: .vertical)
+        let dosageStackView = UIStackView(arrangedSubviews: [dosageLabel, dosageSegmentedControl, daysSelectorCollectionView, dosageSubtextLabel], spacing: 10, axis: .vertical)
 
         // main stack view that holds all other  stack views views
-        let mainStackView = UIStackView(arrangedSubviews: [headerStackView, nameTextField, datePickerHeaderView, datePicker, shapesStackView, dosageStackView], spacing: 40, axis: .vertical)
+        let mainStackView = UIStackView(arrangedSubviews: [headerStackView, nameTextField, datePickerHeaderView, datePicker, shapesStackView, dosageStackView], spacing: 30, axis: .vertical)
         
         addSubview(mainStackView)
         mainStackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 40).isActive = true
