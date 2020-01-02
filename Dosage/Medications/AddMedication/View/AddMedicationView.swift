@@ -25,14 +25,13 @@ class AddMedicationView: UIView {
     private let nameTextField =  AddMedicationTextField(placeholder: "Name")
     let datePickerHeaderView = DatePickerHeaderView()
     
-    private var cancelButton: UIButton = {
+    var cancelButton: UIButton = {
         if #available(iOS 13.0, *) {
             let config = UIImage.SymbolConfiguration(pointSize: 20, weight: .regular, scale: .large)
             let symbolImage = UIImage(systemName: "xmark.circle", withConfiguration: config)
             let button = UIButton()
             button.setImage(symbolImage, for: .normal)
             button.tintColor = .lightGray
-            button.addTarget(self, action: #selector(handleCancel), for: .touchUpInside)
             return button
         } else {
             return UIButton()
@@ -102,10 +101,9 @@ class AddMedicationView: UIView {
         return collectionView
     }()
     
-    init(addHandler: @escaping(_ name: String, _ shapeIndexPath: IndexPath, _ startDate: Date, _ endDate: Date) -> Void, cancelHandler: @escaping() -> Void) {
+    init(addHandler: @escaping(_ name: String, _ shapeIndexPath: IndexPath, _ startDate: Date, _ endDate: Date) -> Void) {
         super.init(frame: .zero)
         self.addHandler = addHandler
-        self.cancelHandler = cancelHandler
         setupView()
         setupSubViews()
     }
@@ -175,9 +173,5 @@ class AddMedicationView: UIView {
         guard let endDate = datePickerHeaderView.rightDate else { return }
         
         addHandler?(name, selectedShapeIndexPath, startDate, endDate)
-    }
-    
-    @objc private func handleCancel() {
-        cancelHandler?()
     }
 }

@@ -21,7 +21,9 @@ class AddMedicationViewController: UIViewController {
     var addMedicationView: AddMedicationView?
     
     override func loadView() {
-        let addMedicationView = AddMedicationView(addHandler: handleAdd, cancelHandler: handleCancel)
+        let addMedicationView = AddMedicationView(addHandler: handleAdd)
+        addMedicationView.cancelButton.addTarget(self, action: #selector(handleCancel), for: .touchUpInside)
+        
         addMedicationView.shapesCollectionView.delegate = self
         addMedicationView.shapesCollectionView.dataSource = self
         addMedicationView.daysSelectorCollectionView.delegate = self
@@ -50,7 +52,7 @@ class AddMedicationViewController: UIViewController {
         }
     }
     
-    private func handleCancel() {
+    @objc private func handleCancel() {
         dismiss(animated: true)
     }
     
