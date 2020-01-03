@@ -58,11 +58,14 @@ class DatePickerHeaderView: UIView {
         }
     }()
     
-    init() {
+    init(delegate: DatePickerHeaderViewDelegate? = nil) {
+        self.delegate = delegate
         super.init(frame: .zero)
         setupView()
         setupBorder()
         setupDateLabels()
+        translatesAutoresizingMaskIntoConstraints = false
+        heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         defer { // called after self is available, didSet on leftDate is called this way.
             leftDate = Date()

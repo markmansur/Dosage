@@ -17,7 +17,6 @@ class AddMedicationView: UIView {
     private let addNewMedicationLabel = UILabel(text: "Add New medication", font: .boldSystemFont(ofSize: 19))
     
     let nameTextField =  AddMedicationTextField(placeholder: "Name")
-    let datePickerHeaderView = DatePickerHeaderView()
     
     var cancelButton: UIButton = {
         if #available(iOS 13.0, *) {
@@ -32,6 +31,7 @@ class AddMedicationView: UIView {
         }
     }()
     
+    let startEndDatePickerView: UIView
     let shapesView: UIView
     let dosageView: UIView
     
@@ -48,16 +48,8 @@ class AddMedicationView: UIView {
         return button
     }()
     
-    let datePicker: UIDatePicker = {
-        let picker = UIDatePicker()
-        picker.datePickerMode = .date
-        picker.isHidden = true
-        picker.translatesAutoresizingMaskIntoConstraints = false
-        picker.heightAnchor.constraint(equalToConstant: 90).isActive = true
-        return picker
-    }()
-    
-    init(shapesView: UIView, dosageView: UIView) {
+    init(startEndDatePickerView: UIView, shapesView: UIView, dosageView: UIView) {
+        self.startEndDatePickerView = startEndDatePickerView
         self.shapesView = shapesView
         self.dosageView = dosageView
         super.init(frame: .zero)
@@ -77,13 +69,10 @@ class AddMedicationView: UIView {
     }
     
     func setupSubViews() {
-        datePickerHeaderView.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        
         let headerStackView = UIStackView(arrangedSubviews: [addNewMedicationLabel, cancelButton])
-//        let shapesStackView = UIStackView(arrangedSubviews: [shapesCollectionView], spacing: 7, axis: .vertical)
 
         // main stack view that holds all other  stack views views
-        let mainStackView = UIStackView(arrangedSubviews: [headerStackView, nameTextField, datePickerHeaderView, datePicker, shapesView, dosageView], spacing: 30, axis: .vertical)
+        let mainStackView = UIStackView(arrangedSubviews: [headerStackView, nameTextField, startEndDatePickerView, shapesView, dosageView], spacing: 30, axis: .vertical)
         
         addSubview(mainStackView)
         mainStackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 40).isActive = true
@@ -94,30 +83,5 @@ class AddMedicationView: UIView {
         addButton.leftAnchor.constraint(equalTo: leftAnchor, constant: 48).isActive = true
         addButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -48).isActive = true
         addButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
-    }
-    
-    func showDatePicker() {
-        switch datePickerHeaderView.selectedState {
-        case .left:
-            guard let leftDate = datePickerHeaderView.leftDate else { break }
-            datePicker.date = leftDate
-        case .right:
-            guard let rightDate = datePickerHeaderView.rightDate else { break }
-            datePicker.date = rightDate
-        case .none:
-            break
-        }
-        
-        // show picker animation
-        UIView.animate(withDuration: 0.5) {
-            self.datePicker.isHidden = false
-        }
-    }
-    
-    func hideDatePicker() {
-        // hide picker animation
-        UIView.animate(withDuration: 0.5) {
-            self.datePicker.isHidden = true
-        }
     }
 }
