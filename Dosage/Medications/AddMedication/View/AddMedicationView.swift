@@ -15,7 +15,6 @@ protocol AddMedicationViewDelegate {
 class AddMedicationView: UIView {
     // MARK: Properties
     private let addNewMedicationLabel = UILabel(text: "Add New medication", font: .boldSystemFont(ofSize: 19))
-    private let shapesLabel = UILabel(text: "Shape", textColor: .lightGray, font: .systemFont(ofSize: 14))
     
     let nameTextField =  AddMedicationTextField(placeholder: "Name")
     let datePickerHeaderView = DatePickerHeaderView()
@@ -33,7 +32,7 @@ class AddMedicationView: UIView {
         }
     }()
     
-    let shapesCollectionView: UICollectionView
+    let shapesView: UIView
     let dosageView: UIView
     
     let addButton: UIButton = {
@@ -58,8 +57,8 @@ class AddMedicationView: UIView {
         return picker
     }()
     
-    init(shapesCollectionView: UICollectionView, dosageView: UIView) {
-        self.shapesCollectionView = shapesCollectionView
+    init(shapesView: UIView, dosageView: UIView) {
+        self.shapesView = shapesView
         self.dosageView = dosageView
         super.init(frame: .zero)
         setupView()
@@ -81,10 +80,10 @@ class AddMedicationView: UIView {
         datePickerHeaderView.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         let headerStackView = UIStackView(arrangedSubviews: [addNewMedicationLabel, cancelButton])
-        let shapesStackView = UIStackView(arrangedSubviews: [shapesLabel, shapesCollectionView], spacing: 7, axis: .vertical)
+//        let shapesStackView = UIStackView(arrangedSubviews: [shapesCollectionView], spacing: 7, axis: .vertical)
 
         // main stack view that holds all other  stack views views
-        let mainStackView = UIStackView(arrangedSubviews: [headerStackView, nameTextField, datePickerHeaderView, datePicker, shapesStackView, dosageView], spacing: 30, axis: .vertical)
+        let mainStackView = UIStackView(arrangedSubviews: [headerStackView, nameTextField, datePickerHeaderView, datePicker, shapesView, dosageView], spacing: 30, axis: .vertical)
         
         addSubview(mainStackView)
         mainStackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 40).isActive = true

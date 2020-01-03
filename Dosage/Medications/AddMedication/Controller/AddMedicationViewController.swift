@@ -22,7 +22,7 @@ class AddMedicationViewController: UIViewController {
     let dosageViewController = DosageViewController()
     
     override func loadView() {
-        let addMedicationView = AddMedicationView(shapesCollectionView: shapesViewController.collectionView, dosageView: dosageViewController.view)
+        let addMedicationView = AddMedicationView(shapesView: shapesViewController.view, dosageView: dosageViewController.view)
         addMedicationView.cancelButton.addTarget(self, action: #selector(handleCancel), for: .touchUpInside)
         addMedicationView.addButton.addTarget(self, action: #selector(handleAdd), for: .touchUpInside)
         addMedicationView.datePickerHeaderView.delegate = self
