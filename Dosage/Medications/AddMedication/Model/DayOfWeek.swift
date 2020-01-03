@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum DayOfWeek: Int, CaseIterable {
+enum DayOfWeek: Int32, CaseIterable {
     case sunday    = 0
     case monday    = 1
     case tuesday   = 2
