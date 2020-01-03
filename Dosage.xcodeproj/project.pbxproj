@@ -112,7 +112,6 @@
 				68C6393723A1CA9A00C8CD6C /* DatePickerHeaderView.swift */,
 				6812E2C3239C55D4007459C3 /* AddMedicationView.swift */,
 				6812E2C5239D75AF007459C3 /* AddMedicationTextField.swift */,
-				6812E2CA239E025B007459C3 /* ShapeCell.swift */,
 				68C04B8223BD5ED1002AD7BA /* DayOfWeekCell.swift */,
 			);
 			path = View;
@@ -139,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				684907D123BFE0BA0035A9D7 /* ShapesViewController.swift */,
+				6812E2CA239E025B007459C3 /* ShapeCell.swift */,
 			);
 			path = Shapes;
 			sourceTree = "<group>";
