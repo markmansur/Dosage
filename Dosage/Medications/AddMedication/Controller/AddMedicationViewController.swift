@@ -52,7 +52,22 @@ class AddMedicationViewController: UIViewController {
         guard let endDate = addMedicationView?.datePickerHeaderView.rightDate else { return }
         
         let shape = shapes[selectedShapeIndexPath.row]
-        let medication = CoreDataManager.shared.addMedication(name: name, shape: shape, startDate: startDate, endDate: endDate)
+        var dosageDays: [DayOfWeek]
+        
+        // determine dosage days. if daily get all cases. if custom get only selected cases.
+        switch addMedicationView?.dosageSegmentedControl.selectedSegmentIndex {
+        case 0:
+            dosageDays = DayOfWeek.allCases
+        default:
+            dosageDays = [DayOfWeek]()
+            addMedicationView?.daysSelectorCollectionView.indexPathsForSelectedItems?.forEach({ (selectedIndexPath) in
+                guard let cell = addMedicationView?.daysSelectorCollectionView.cellForItem(at: selectedIndexPath) as? DayOfWeekCell else { return }
+                guard let dayOfWeek = cell.dayOfWeek else { return }
+                dosageDays.append(dayOfWeek)
+            })
+        }
+        
+        let medication = CoreDataManager.shared.addMedication(name: name, shape: shape, startDate: startDate, endDate: endDate, dosageDays: dosageDays)
         dismiss(animated: true) {
             self.delegate?.didAddMedication(medication: medication)
         }

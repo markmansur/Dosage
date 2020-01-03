@@ -45,7 +45,7 @@ struct CoreDataManager {
         }
     }
     
-    func addMedication(name: String, shape: Shape, startDate: Date, endDate: Date) -> Medication {
+    func addMedication(name: String, shape: Shape, startDate: Date, endDate: Date, dosageDays: [DayOfWeek]) -> Medication {
         let context = persistentContainer.viewContext
         
         let medication = Medication(context: context)
@@ -53,6 +53,12 @@ struct CoreDataManager {
         medication.shape = shape.rawValue
         medication.startDate = startDate
         medication.endDate = endDate
+        
+        dosageDays.forEach { (dayOfWeek) in
+            let dosageDay = DosageDay(context: context)
+            dosageDay.dayOfWeek = dayOfWeek.rawValue
+            medication.addToDosageDays(dosageDay)
+        }
         
         do {
             try context.save()
