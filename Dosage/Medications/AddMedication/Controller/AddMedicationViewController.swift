@@ -20,11 +20,12 @@ class AddMedicationViewController: UIViewController {
     let daysOfWeek = DayOfWeek.allCases
     var addMedicationView: AddMedicationView?
     
+    let shapesViewController = ShapesViewController()
+    
     override func loadView() {
-        let addMedicationView = AddMedicationView()
+        let addMedicationView = AddMedicationView(shapesCollectionView: shapesViewController.collectionView)
         addMedicationView.cancelButton.addTarget(self, action: #selector(handleCancel), for: .touchUpInside)
         addMedicationView.addButton.addTarget(self, action: #selector(handleAdd), for: .touchUpInside)
-        
         addMedicationView.shapesCollectionView.delegate = self
         addMedicationView.shapesCollectionView.dataSource = self
         addMedicationView.daysSelectorCollectionView.delegate = self
@@ -32,12 +33,14 @@ class AddMedicationViewController: UIViewController {
         addMedicationView.datePickerHeaderView.delegate = self
         addMedicationView.datePicker.addTarget(self, action: #selector(handleDateChange(sender:)), for: .valueChanged)
         addMedicationView.dosageSegmentedControl.addTarget(self, action: #selector(handleSegementControlChange(sender:)), for: .valueChanged)
+        addMedicationView.setupSubViews()
         view = addMedicationView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         addMedicationView = view as? AddMedicationView
+        addChild(shapesViewController)
     }
     
     // MARK: Handlers

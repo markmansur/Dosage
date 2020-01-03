@@ -35,6 +35,8 @@ class AddMedicationView: UIView {
         }
     }()
     
+    let shapesCollectionView: UICollectionView
+    
     let addButton: UIButton = {
         let button = UIButton()
         button.heightAnchor.constraint(equalToConstant: 50).isActive = true
@@ -55,18 +57,6 @@ class AddMedicationView: UIView {
         picker.translatesAutoresizingMaskIntoConstraints = false
         picker.heightAnchor.constraint(equalToConstant: 90).isActive = true
         return picker
-    }()
-    
-    let shapesCollectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        layout.minimumLineSpacing = 16
-        let collectionView = UICollectionView(frame: CGRect.null, collectionViewLayout: layout)
-        collectionView.register(ShapeCell.self, forCellWithReuseIdentifier: "cellId")
-        collectionView.backgroundColor = .clear
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.heightAnchor.constraint(equalToConstant: 45).isActive = true
-        return collectionView
     }()
         
     let dosageSegmentedControl: UISegmentedControl = {
@@ -97,10 +87,10 @@ class AddMedicationView: UIView {
         return collectionView
     }()
     
-    init() {
+    init(shapesCollectionView: UICollectionView) {
+        self.shapesCollectionView = shapesCollectionView
         super.init(frame: .zero)
         setupView()
-        setupSubViews()
     }
     
     required init?(coder: NSCoder) {
@@ -115,7 +105,7 @@ class AddMedicationView: UIView {
         layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
     
-    private func setupSubViews() {
+    func setupSubViews() {
         datePickerHeaderView.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         let headerStackView = UIStackView(arrangedSubviews: [addNewMedicationLabel, cancelButton])
