@@ -56,7 +56,8 @@ class DayOfWeekCell: UICollectionViewCell {
     private func setupShadow() {
         layer.shadowColor = UIColor(named: "darkGreen")?.cgColor
         layer.shadowRadius = 10
-        layer.shadowOpacity = 0.10
+        layer.shadowOpacity = 0.08
+        layer.shadowOffset = CGSize(width: -10, height: -5)
         layer.masksToBounds = false
     }
     

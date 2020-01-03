@@ -17,7 +17,7 @@ class AddMedicationView: UIView {
     private let addNewMedicationLabel = UILabel(text: "Add New medication", font: .boldSystemFont(ofSize: 19))
     private let shapesLabel = UILabel(text: "Shape", textColor: .lightGray, font: .systemFont(ofSize: 14))
     private let dosageLabel = UILabel(text: "Dosage", textColor: .lightGray, font: .systemFont(ofSize: 14))
-    let dosageSubtextLabel = UILabel(text: "You have a dosage every day.", textColor: .lightGray, font: .systemFont(ofSize: 12))
+    let dosageSubtextLabel = UILabel(text: "You'll have a dosage every day.", textColor: .lightGray, font: .systemFont(ofSize: 12))
     
     let nameTextField =  AddMedicationTextField(placeholder: "Name")
     let datePickerHeaderView = DatePickerHeaderView()
@@ -65,7 +65,7 @@ class AddMedicationView: UIView {
         collectionView.register(ShapeCell.self, forCellWithReuseIdentifier: "cellId")
         collectionView.backgroundColor = .clear
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.heightAnchor.constraint(equalToConstant: 55).isActive = true
+        collectionView.heightAnchor.constraint(equalToConstant: 45).isActive = true
         return collectionView
     }()
         

@@ -79,14 +79,13 @@ class AddMedicationViewController: UIViewController {
     @objc private func handleSegementControlChange(sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
-            addMedicationView?.dosageSubtextLabel.text = "You have a dosage every day."
+            addMedicationView?.dosageSubtextLabel.text = "You'll have a dosage every day."
             UIView.animate(withDuration: 0.3) {
                 self.addMedicationView?.daysSelectorCollectionView.isHidden = true
             }
             
-            
         default:
-            addMedicationView?.dosageSubtextLabel.text = "You have a dosage on select days."
+            addMedicationView?.dosageSubtextLabel.text = "You'll have a dosage on select days."
             UIView.animate(withDuration: 0.3) {
                 self.addMedicationView?.daysSelectorCollectionView.isHidden = false
             }
