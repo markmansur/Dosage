@@ -20,6 +20,7 @@
 		684907D223BFE0BA0035A9D7 /* ShapesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684907D123BFE0BA0035A9D7 /* ShapesViewController.swift */; };
 		6858FFF623A0950D00EA8DA8 /* UILabel+helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6858FFF523A0950D00EA8DA8 /* UILabel+helpers.swift */; };
 		68BB342A23A9778100185C30 /* DayOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BB342923A9778100185C30 /* DayOfWeek.swift */; };
+		68BBBADC23BFE5FC00AF24E5 /* DosageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BBBADB23BFE5FC00AF24E5 /* DosageViewController.swift */; };
 		68C04B8323BD5ED1002AD7BA /* DayOfWeekCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C04B8223BD5ED1002AD7BA /* DayOfWeekCell.swift */; };
 		68C6393823A1CA9A00C8CD6C /* DatePickerHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C6393723A1CA9A00C8CD6C /* DatePickerHeaderView.swift */; };
 		68E8C708239A0EF7002281DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E8C707239A0EF7002281DE /* AppDelegate.swift */; };
@@ -53,6 +54,7 @@
 		684907D123BFE0BA0035A9D7 /* ShapesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapesViewController.swift; sourceTree = "<group>"; };
 		6858FFF523A0950D00EA8DA8 /* UILabel+helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+helpers.swift"; sourceTree = "<group>"; };
 		68BB342923A9778100185C30 /* DayOfWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOfWeek.swift; sourceTree = "<group>"; };
+		68BBBADB23BFE5FC00AF24E5 /* DosageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DosageViewController.swift; sourceTree = "<group>"; };
 		68C04B8223BD5ED1002AD7BA /* DayOfWeekCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOfWeekCell.swift; sourceTree = "<group>"; };
 		68C6393723A1CA9A00C8CD6C /* DatePickerHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerHeaderView.swift; sourceTree = "<group>"; };
 		68E8C704239A0EF7002281DE /* Dosage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dosage.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				684907D023BFC3600035A9D7 /* Shapes */,
+				68BBBADA23BFE59E00AF24E5 /* Dosage */,
 				684907CD23BFBCE80035A9D7 /* SelectedTimes */,
 				68765BCE239ECD4600F15D8F /* Controller */,
 				6812E2CE239E1C16007459C3 /* Model */,
@@ -112,7 +115,6 @@
 				68C6393723A1CA9A00C8CD6C /* DatePickerHeaderView.swift */,
 				6812E2C3239C55D4007459C3 /* AddMedicationView.swift */,
 				6812E2C5239D75AF007459C3 /* AddMedicationTextField.swift */,
-				68C04B8223BD5ED1002AD7BA /* DayOfWeekCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -150,6 +152,15 @@
 				6812E2C0239B79DA007459C3 /* AddMedicationViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		68BBBADA23BFE59E00AF24E5 /* Dosage */ = {
+			isa = PBXGroup;
+			children = (
+				68BBBADB23BFE5FC00AF24E5 /* DosageViewController.swift */,
+				68C04B8223BD5ED1002AD7BA /* DayOfWeekCell.swift */,
+			);
+			path = Dosage;
 			sourceTree = "<group>";
 		};
 		68E8C6FB239A0EF7002281DE = {
@@ -321,6 +332,7 @@
 				68E8C708239A0EF7002281DE /* AppDelegate.swift in Sources */,
 				6812E2C1239B79DA007459C3 /* AddMedicationViewController.swift in Sources */,
 				68C04B8323BD5ED1002AD7BA /* DayOfWeekCell.swift in Sources */,
+				68BBBADC23BFE5FC00AF24E5 /* DosageViewController.swift in Sources */,
 				684907D223BFE0BA0035A9D7 /* ShapesViewController.swift in Sources */,
 				684907CF23BFBD020035A9D7 /* SelectedTimesController.swift in Sources */,
 				6858FFF623A0950D00EA8DA8 /* UILabel+helpers.swift in Sources */,

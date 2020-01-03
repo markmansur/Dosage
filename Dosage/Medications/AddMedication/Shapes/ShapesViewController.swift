@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ShapesViewController: UICollectionViewController {
+class ShapesViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     let shapes = Shape.allCases
     
     override func viewDidLoad() {
@@ -27,6 +27,11 @@ class ShapesViewController: UICollectionViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func selectedShape() -> Shape {
+        guard let selectedIndexPath = collectionView.indexPathsForSelectedItems?[0] else { return Shape.shape1 }
+        return shapes[selectedIndexPath.row]
     }
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -51,5 +56,9 @@ class ShapesViewController: UICollectionViewController {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as? ShapeCell else { return UICollectionViewCell() }
         cell.shapeImageView.image = shapes[indexPath.row].image
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 45, height: 45)
     }
 }

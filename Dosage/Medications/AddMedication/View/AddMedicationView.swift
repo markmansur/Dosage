@@ -16,8 +16,6 @@ class AddMedicationView: UIView {
     // MARK: Properties
     private let addNewMedicationLabel = UILabel(text: "Add New medication", font: .boldSystemFont(ofSize: 19))
     private let shapesLabel = UILabel(text: "Shape", textColor: .lightGray, font: .systemFont(ofSize: 14))
-    private let dosageLabel = UILabel(text: "Dosage", textColor: .lightGray, font: .systemFont(ofSize: 14))
-    let dosageSubtextLabel = UILabel(text: "You'll have a dosage every day.", textColor: .lightGray, font: .systemFont(ofSize: 12))
     
     let nameTextField =  AddMedicationTextField(placeholder: "Name")
     let datePickerHeaderView = DatePickerHeaderView()
@@ -36,6 +34,7 @@ class AddMedicationView: UIView {
     }()
     
     let shapesCollectionView: UICollectionView
+    let dosageView: UIView
     
     let addButton: UIButton = {
         let button = UIButton()
@@ -58,37 +57,10 @@ class AddMedicationView: UIView {
         picker.heightAnchor.constraint(equalToConstant: 90).isActive = true
         return picker
     }()
-        
-    let dosageSegmentedControl: UISegmentedControl = {
-        let sc = UISegmentedControl()
-        sc.insertSegment(withTitle: "Daily", at: 0, animated: true)
-        sc.insertSegment(withTitle: "Custom", at: 1, animated: true)
-        sc.selectedSegmentTintColor = UIColor(named: "darkGreen")
-        sc.selectedSegmentIndex = 0
-        sc.setTitleTextAttributes([.font: UIFont.boldSystemFont(ofSize: 14),
-                                   .foregroundColor: UIColor.white], for: .selected)
-        sc.setTitleTextAttributes([.font: UIFont.boldSystemFont(ofSize: 14),
-                                   .foregroundColor: UIColor(named: "darkGreen") ?? .green], for: .normal)
-        return sc
-    }()
     
-    let daysSelectorCollectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        layout.minimumLineSpacing = 10
-        let collectionView = UICollectionView(frame: .null, collectionViewLayout: layout)
-        collectionView.isHidden = true
-        collectionView.allowsMultipleSelection = true
-        collectionView.backgroundColor = .clear
-        collectionView.layer.masksToBounds = false
-        collectionView.register(DayOfWeekCell.self, forCellWithReuseIdentifier: "cellId")
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.heightAnchor.constraint(equalToConstant: 60).isActive = true
-        return collectionView
-    }()
-    
-    init(shapesCollectionView: UICollectionView) {
+    init(shapesCollectionView: UICollectionView, dosageView: UIView) {
         self.shapesCollectionView = shapesCollectionView
+        self.dosageView = dosageView
         super.init(frame: .zero)
         setupView()
     }
@@ -110,10 +82,9 @@ class AddMedicationView: UIView {
         
         let headerStackView = UIStackView(arrangedSubviews: [addNewMedicationLabel, cancelButton])
         let shapesStackView = UIStackView(arrangedSubviews: [shapesLabel, shapesCollectionView], spacing: 7, axis: .vertical)
-        let dosageStackView = UIStackView(arrangedSubviews: [dosageLabel, dosageSegmentedControl, daysSelectorCollectionView, dosageSubtextLabel], spacing: 10, axis: .vertical)
 
         // main stack view that holds all other  stack views views
-        let mainStackView = UIStackView(arrangedSubviews: [headerStackView, nameTextField, datePickerHeaderView, datePicker, shapesStackView, dosageStackView], spacing: 30, axis: .vertical)
+        let mainStackView = UIStackView(arrangedSubviews: [headerStackView, nameTextField, datePickerHeaderView, datePicker, shapesStackView, dosageView], spacing: 30, axis: .vertical)
         
         addSubview(mainStackView)
         mainStackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 40).isActive = true
