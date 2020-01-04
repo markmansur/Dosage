@@ -34,6 +34,7 @@ class AddMedicationView: UIView {
     let startEndDatePickerView: UIView
     let shapesView: UIView
     let dosageView: UIView
+    let selectedTimesView: UIView
     
     let addButton: UIButton = {
         let button = UIButton()
@@ -48,10 +49,11 @@ class AddMedicationView: UIView {
         return button
     }()
     
-    init(startEndDatePickerView: UIView, shapesView: UIView, dosageView: UIView) {
+    init(startEndDatePickerView: UIView, shapesView: UIView, dosageView: UIView, selectedTimesView: UIView) {
         self.startEndDatePickerView = startEndDatePickerView
         self.shapesView = shapesView
         self.dosageView = dosageView
+        self.selectedTimesView = selectedTimesView
         super.init(frame: .zero)
         setupView()
     }
@@ -72,7 +74,7 @@ class AddMedicationView: UIView {
         let headerStackView = UIStackView(arrangedSubviews: [addNewMedicationLabel, cancelButton])
 
         // main stack view that holds all other  stack views views
-        let mainStackView = UIStackView(arrangedSubviews: [headerStackView, nameTextField, startEndDatePickerView, shapesView, dosageView], spacing: 30, axis: .vertical)
+        let mainStackView = UIStackView(arrangedSubviews: [headerStackView, nameTextField, startEndDatePickerView, shapesView, dosageView, selectedTimesView], spacing: 30, axis: .vertical)
         
         addSubview(mainStackView)
         mainStackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 40).isActive = true

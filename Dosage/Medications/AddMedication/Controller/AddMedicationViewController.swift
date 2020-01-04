@@ -21,9 +21,10 @@ class AddMedicationViewController: UIViewController {
     let startEndDataPickerController = StartEndDatePickerController()
     let shapesViewController = ShapesViewController()
     let dosageViewController = DosageViewController()
+    let selectedTimesController = SelectedTimesController()
     
     override func loadView() {
-        let addMedicationView = AddMedicationView(startEndDatePickerView: startEndDataPickerController.view,shapesView: shapesViewController.view, dosageView: dosageViewController.view)
+        let addMedicationView = AddMedicationView(startEndDatePickerView: startEndDataPickerController.view,shapesView: shapesViewController.view, dosageView: dosageViewController.view, selectedTimesView: selectedTimesController.view)
         addMedicationView.cancelButton.addTarget(self, action: #selector(handleCancel), for: .touchUpInside)
         addMedicationView.addButton.addTarget(self, action: #selector(handleAdd), for: .touchUpInside)
         addMedicationView.setupSubViews()
