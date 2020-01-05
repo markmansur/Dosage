@@ -100,13 +100,10 @@
 		6812E2BA239B77DF007459C3 /* AddMedication */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
-=======
 				68C3CE2423C003A70083AB5F /* StartEndDatePicker */,
 				684907D023BFC3600035A9D7 /* Shapes */,
 				68BBBADA23BFE59E00AF24E5 /* Dosage */,
 				684907CD23BFBCE80035A9D7 /* SelectedTimes */,
->>>>>>> develop
 				68765BCE239ECD4600F15D8F /* Controller */,
 				6812E2CE239E1C16007459C3 /* Model */,
 				6812E2C2239C55BB007459C3 /* View */,
@@ -171,8 +168,6 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
-=======
 		68BBBADA23BFE59E00AF24E5 /* Dosage */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,7 +194,6 @@
 			path = AddTime;
 			sourceTree = "<group>";
 		};
->>>>>>> develop
 		68E8C6FB239A0EF7002281DE = {
 			isa = PBXGroup;
 			children = (
