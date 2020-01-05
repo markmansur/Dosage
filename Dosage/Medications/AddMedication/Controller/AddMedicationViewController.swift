@@ -56,8 +56,9 @@ class AddMedicationViewController: UIViewController {
         guard let endDate = startEndDataPickerController.endDate() else { return }
         let shape = shapesViewController.selectedShape()
         let dosageDays = dosageViewController.selectedDosageDays()
+        let dosageTimes = selectedTimesController.selectedTimes
         
-        let medication = CoreDataManager.shared.addMedication(name: name, shape: shape, startDate: startDate, endDate: endDate, dosageDays: dosageDays)
+        let medication = CoreDataManager.shared.addMedication(name: name, shape: shape, startDate: startDate, endDate: endDate, dosageDays: dosageDays, dosageTimes: dosageTimes)
         dismiss(animated: true) {
             self.addMedicationControllerDelegate?.didAddMedication(medication: medication)
         }
