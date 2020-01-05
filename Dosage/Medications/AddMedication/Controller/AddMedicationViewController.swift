@@ -15,20 +15,34 @@ protocol AddMedicationControllerDelegate {
 class AddMedicationViewController: UIViewController {
     
     // MARK: Properties
-    var delegate: AddMedicationControllerDelegate?
-    let shapes = Shape.allCases
+    var addMedicationControllerDelegate: AddMedicationControllerDelegate?
+    var addMedicationView: AddMedicationView?
+    
+    let startEndDataPickerController = StartEndDatePickerController()
+    let shapesViewController = ShapesViewController()
+    let dosageViewController = DosageViewController()
+    let selectedTimesController = SelectedTimesController()
     
     override func loadView() {
-        let addMedicationView = AddMedicationView(addHandler: handleAdd, cancelHandler: handleCancel)
-        addMedicationView.shapesCollectionView.delegate = self
-        addMedicationView.shapesCollectionView.dataSource = self
-        addMedicationView.datePickerHeaderView.delegate = self
-        addMedicationView.datePicker.addTarget(self, action: #selector(handleDateChange(sender:)), for: .valueChanged)
+        let addMedicationView = AddMedicationView(startEndDatePickerView: startEndDataPickerController.view,shapesView: shapesViewController.view, dosageView: dosageViewController.view, selectedTimesView: selectedTimesController.view)
+        selectedTimesController.delegate = self
+        addMedicationView.cancelButton.addTarget(self, action: #selector(handleCancel), for: .touchUpInside)
+        addMedicationView.addButton.addTarget(self, action: #selector(handleAdd), for: .touchUpInside)
+        addMedicationView.setupSubViews()
         view = addMedicationView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        navigationBar.isHidden = true
+        addMedicationView = view as? AddMedicationView
+        addChild(shapesViewController)
+        addChild(dosageViewController)
+        addChild(startEndDataPickerController)
+        
+        shapesViewController.didMove(toParent: self)
+        dosageViewController.didMove(toParent: self)
+        startEndDataPickerController.didMove(toParent: self)
     }
     
     // MARK: Handlers
@@ -36,76 +50,37 @@ class AddMedicationViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    private func handleAdd(name: String, shapeIndexPath: IndexPath, startDate: Date, endDate: Date) {
-        let shape = shapes[shapeIndexPath.row]
-        let medication = CoreDataManager.shared.addMedication(name: name, shape: shape, startDate: startDate, endDate: endDate)
+    @objc private func handleAdd() {
+        guard let name = addMedicationView?.nameTextField.text else { return }
+        guard let startDate = startEndDataPickerController.startDate() else { return }
+        guard let endDate = startEndDataPickerController.endDate() else { return }
+        let shape = shapesViewController.selectedShape()
+        let dosageDays = dosageViewController.selectedDosageDays()
+        let dosageTimes = selectedTimesController.selectedTimes
+        
+        let medication = CoreDataManager.shared.addMedication(name: name, shape: shape, startDate: startDate, endDate: endDate, dosageDays: dosageDays, dosageTimes: dosageTimes)
         dismiss(animated: true) {
-            self.delegate?.didAddMedication(medication: medication)
+            self.addMedicationControllerDelegate?.didAddMedication(medication: medication)
         }
     }
     
-    private func handleCancel() {
+    @objc private func handleCancel() {
         dismiss(animated: true)
     }
     
-    @objc private func handleDateChange(sender: UIDatePicker) {
-        guard let addMedicationView = view as? AddMedicationView else { return }
-        let date = addMedicationView.datePicker.date
-        
-        switch addMedicationView.datePickerHeaderView.selectedState {
-            case .left:
-                addMedicationView.datePickerHeaderView.leftDate = date
-            case .right:
-                addMedicationView.datePickerHeaderView.rightDate = date
-            case .none:
-                break
-        }
+    
+}
+
+extension AddMedicationViewController: SelectedTimesControllerDelegate {
+    func didTapAddTime() {
+        let addTimeController = AddTimeController()
+        addTimeController.delegate = self
+        navigationController?.pushViewController(addTimeController, animated: true)
     }
 }
 
-extension AddMedicationViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return shapes.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as? ShapeCell else { return UICollectionViewCell()}
-        cell.shapeImageView.image = shapes[indexPath.row].image
-        return cell
-    }
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size = 50
-        return CGSize(width: size, height: size)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.cellForItem(at: indexPath) as? ShapeCell else { return }
-        cell.highlight()
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.cellForItem(at: indexPath) as? ShapeCell else { return }
-        cell.unHighlight()
-    }
-}
-
-extension AddMedicationViewController: DatePickerHeaderViewDelegate {
-    
-    func headerStateDidChange(state: SelectedState) {
-        guard let addMedicationView = view as? AddMedicationView else { return }
-        
-        switch state {
-            case .left:
-                addMedicationView.showDatePicker()
-            case .right:
-                addMedicationView.showDatePicker()
-            case .none:
-                addMedicationView.hideDatePicker()
-        }
+extension AddMedicationViewController: AddTimeControllerDelegate {
+    func didAddTime(time: Time) {
+        selectedTimesController.addTime(time: time)
     }
 }

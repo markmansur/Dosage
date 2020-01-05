@@ -23,7 +23,7 @@ class ShapeCell: UICollectionViewCell {
     }
     
     private func setupLayer() {
-        layer.cornerRadius = 16
+        layer.cornerRadius = 13
     }
     
     private func setupImageView() {
