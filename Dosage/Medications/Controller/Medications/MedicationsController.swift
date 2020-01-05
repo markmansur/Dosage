@@ -60,10 +60,15 @@ class MedicationsController: UICollectionViewController {
     
     @objc private func handleAddMedication() {
         let addController = AddMedicationViewController()
-        addController.delegate = self
+        addController.addMedicationControllerDelegate = self
         addController.transitioningDelegate = slideInTransitioningDelegate
         addController.modalPresentationStyle = .custom
         
-        present(addController, animated: true, completion: nil)
+        let navController = UINavigationController(rootViewController: addController)
+        navController.navigationBar.isHidden = true
+        navController.transitioningDelegate = slideInTransitioningDelegate
+        navController.modalPresentationStyle = .custom
+        
+        present(navController, animated: true, completion: nil)
     }
 }

@@ -9,19 +9,14 @@
 import UIKit
 
 protocol SelectedTimesControllerDelegate {
-    func didTapAdd()
+    func didTapAddTime()
 }
 
 class SelectedTimesController: UIViewController {
     var delegate: SelectedTimesControllerDelegate?
     
-    var selectedTimes: [Time] = [
-        Time(hour: 1, min: 30, isPM: true),
-        Time(hour: 2, min: 30, isPM: false),
-        Time(hour: 3, min: 30, isPM: true),
-        Time(hour: 3, min: 30, isPM: true),
-        Time(hour: 3, min: 30, isPM: true)
-    ]
+    var selectedTimes = [Time]()
+    
     private let timesLabel = UILabel(text: "Times", textColor: .lightGray, font: .systemFont(ofSize: 14))
     
     private lazy var collectionView: UICollectionView = {
@@ -61,6 +56,20 @@ class SelectedTimesController: UIViewController {
         collectionView.deleteItems(at: [IndexPath(row: row, section: 0)])
         collectionView.reloadItems(at: collectionView.indexPathsForVisibleItems)
     }
+    
+    func addTime(time: Time) {
+        var foundDuplicate = false
+        selectedTimes.forEach { (selectedTime) in
+            if selectedTime.hour == time.hour && selectedTime.min == time.min && selectedTime.isPM == time.isPM {
+                foundDuplicate = true
+            }
+        }
+        
+        if !foundDuplicate {
+            selectedTimes.append(time)
+            collectionView.insertItems(at: [IndexPath(row: selectedTimes.count - 1, section: 0)])
+        }
+    }
 }
 
 extension SelectedTimesController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -92,7 +101,7 @@ extension SelectedTimesController: UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let row = indexPath.row
         if (row == selectedTimes.count) { // add cell tapped
-            delegate?.didTapAdd()
+            delegate?.didTapAddTime()
         }
     }
     

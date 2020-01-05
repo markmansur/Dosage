@@ -15,7 +15,7 @@ protocol AddMedicationControllerDelegate {
 class AddMedicationViewController: UIViewController {
     
     // MARK: Properties
-    var delegate: AddMedicationControllerDelegate?
+    var addMedicationControllerDelegate: AddMedicationControllerDelegate?
     var addMedicationView: AddMedicationView?
     
     let startEndDataPickerController = StartEndDatePickerController()
@@ -25,6 +25,7 @@ class AddMedicationViewController: UIViewController {
     
     override func loadView() {
         let addMedicationView = AddMedicationView(startEndDatePickerView: startEndDataPickerController.view,shapesView: shapesViewController.view, dosageView: dosageViewController.view, selectedTimesView: selectedTimesController.view)
+        selectedTimesController.delegate = self
         addMedicationView.cancelButton.addTarget(self, action: #selector(handleCancel), for: .touchUpInside)
         addMedicationView.addButton.addTarget(self, action: #selector(handleAdd), for: .touchUpInside)
         addMedicationView.setupSubViews()
@@ -33,6 +34,7 @@ class AddMedicationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        navigationBar.isHidden = true
         addMedicationView = view as? AddMedicationView
         addChild(shapesViewController)
         addChild(dosageViewController)
@@ -57,7 +59,7 @@ class AddMedicationViewController: UIViewController {
         
         let medication = CoreDataManager.shared.addMedication(name: name, shape: shape, startDate: startDate, endDate: endDate, dosageDays: dosageDays)
         dismiss(animated: true) {
-            self.delegate?.didAddMedication(medication: medication)
+            self.addMedicationControllerDelegate?.didAddMedication(medication: medication)
         }
     }
     
@@ -66,4 +68,18 @@ class AddMedicationViewController: UIViewController {
     }
     
     
+}
+
+extension AddMedicationViewController: SelectedTimesControllerDelegate {
+    func didTapAddTime() {
+        let addTimeController = AddTimeController()
+        addTimeController.delegate = self
+        navigationController?.pushViewController(addTimeController, animated: true)
+    }
+}
+
+extension AddMedicationViewController: AddTimeControllerDelegate {
+    func didAddTime(time: Time) {
+        selectedTimesController.addTime(time: time)
+    }
 }
