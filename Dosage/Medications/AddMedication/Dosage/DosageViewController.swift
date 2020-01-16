@@ -63,10 +63,7 @@ class DosageViewController: UIViewController {
         mainStackView.setCustomSpacing(3, after: daysSelectorCollectionView)
         
         view.addSubview(mainStackView)
-        mainStackView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        mainStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        mainStackView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        mainStackView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        mainStackView.anchorToSuperview()
     }
     
     @objc private func handleSegementControlChange(sender: UISegmentedControl) {

@@ -33,10 +33,7 @@ class ShapesViewController: UIViewController {
         let mainStackView = UIStackView(arrangedSubviews: [shapesLabel, collectionView], spacing: 7, axis: .vertical)
         
         view.addSubview(mainStackView)
-        mainStackView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        mainStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        mainStackView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        mainStackView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        mainStackView.anchorToSuperview()
     }
     
     func selectedShape() -> Shape {
