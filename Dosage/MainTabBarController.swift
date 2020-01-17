@@ -11,5 +11,9 @@ import UIKit
 class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let medicationsNavController = MedicationsNavigationController(rootViewController: MedicationsController())
+        
+        viewControllers = [medicationsNavController, CalendarController()]
     }
 }

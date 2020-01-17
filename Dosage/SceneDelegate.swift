@@ -22,10 +22,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            let medicationsNavController = MedicationsNavigationController(rootViewController: MedicationsController())
+            
             
             let tabBarController = MainTabBarController()
-            tabBarController.setViewControllers([medicationsNavController], animated: true)
+//            tabBarController.setViewControllers([medicationsNavController], animated: true)
             
             window.rootViewController = tabBarController
             self.window = window
