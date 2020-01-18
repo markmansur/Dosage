@@ -9,7 +9,12 @@
 import UIKit
 
 class CalendarCell: UICollectionViewCell {
-    var date: Date?
+    var date: Date? {
+        didSet {
+            dateLabel.text = "\(date?.day ?? 0)"
+            monthLabel.text = date?.monthName(.short)
+        }
+    }
     var medications: [Medication]?
     
     var isToday: Bool? {

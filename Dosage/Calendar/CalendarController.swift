@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftDate
 
 class CalendarController: UICollectionViewController {
     var medications: [Medication]?
@@ -41,6 +42,11 @@ extension CalendarController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as? CalendarCell else { return UICollectionViewCell() }
         
+        let now = Date()
+        if month.rawValue == now.month {
+            cell.date = now + indexPath.row.days
+        }
+        
         switch indexPath.row {
         case 0:
             cell.isToday = true
@@ -56,7 +62,8 @@ extension CalendarController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        let now = Date()
+        return now.monthDays - now.day + 1 // calculate number of days remaining in the current month
     }
 }
 
