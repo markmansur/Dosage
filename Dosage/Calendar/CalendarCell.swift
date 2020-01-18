@@ -13,25 +13,24 @@ class CalendarCell: UICollectionViewCell {
         didSet {
             dateLabel.text = "\(date?.day ?? 0)"
             monthLabel.text = date?.monthName(.short)
+            
+            if let isToday = date?.compare(.isToday) {
+                if isToday {
+                    dateLabel.textColor = UIColor(named: "darkGreen")
+                    monthLabel.textColor = UIColor(named: "darkGreen")
+                    self.isToday = true
+                } else {
+                    dateLabel.textColor = .black
+                    monthLabel.textColor = .black
+                    self.isToday = false
+                }
+            }
+            
         }
     }
     var medications: [Medication]?
     
-    var isToday: Bool? {
-        didSet {
-            guard let isToday = isToday else { return }
-            switch isToday {
-            case true:
-                dateLabel.textColor = UIColor(named: "darkGreen")
-                monthLabel.textColor = UIColor(named: "darkGreen")
-            default:
-                dateLabel.textColor = .black
-                monthLabel.textColor = .black
-            }
-            
-            
-        }
-    }
+    private var isToday: Bool = false
     
     let dateLabel = UILabel(text: "04", font: .systemFont(ofSize: 56, weight: .thin), textAlignment: .center)
     let monthLabel = UILabel(text: "JAN", font: .systemFont(ofSize: 22, weight: .thin), textAlignment: .center)

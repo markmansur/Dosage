@@ -47,13 +47,6 @@ extension CalendarController {
             cell.date = now + indexPath.row.days
         }
         
-        switch indexPath.row {
-        case 0:
-            cell.isToday = true
-        default:
-            cell.isToday = false
-        }
-        
         return cell
     }
     
