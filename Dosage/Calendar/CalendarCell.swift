@@ -40,6 +40,7 @@ class CalendarCell: UICollectionViewCell {
         let tableView = UITableView()
         tableView.separatorStyle = .none
         tableView.isScrollEnabled = false
+        tableView.allowsSelection = false
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(CalendarTimeCell.self, forCellReuseIdentifier: "cellId")
