@@ -10,6 +10,7 @@
 		68057BA823C03BCB001469EB /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68057BA723C03BCB001469EB /* Time.swift */; };
 		68057BAA23C03D98001469EB /* AddTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68057BA923C03D98001469EB /* AddTimeCell.swift */; };
 		68057BAC23C03F6C001469EB /* SelectedTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68057BAB23C03F6C001469EB /* SelectedTimeCell.swift */; };
+		6811E01D23C666120070C21A /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6811E01C23C666110070C21A /* CustomSegmentedControl.swift */; };
 		6812E2BD239B7812007459C3 /* SlideInPresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6812E2BC239B7812007459C3 /* SlideInPresentationManager.swift */; };
 		6812E2BF239B787F007459C3 /* SlideInPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6812E2BE239B787F007459C3 /* SlideInPresentationController.swift */; };
 		6812E2C1239B79DA007459C3 /* AddMedicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6812E2C0239B79DA007459C3 /* AddMedicationViewController.swift */; };
@@ -19,6 +20,11 @@
 		6812E2CB239E025B007459C3 /* ShapeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6812E2CA239E025B007459C3 /* ShapeCell.swift */; };
 		6812E2CD239E1A9E007459C3 /* UIStackView+helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6812E2CC239E1A9E007459C3 /* UIStackView+helpers.swift */; };
 		6812E2D0239E1C23007459C3 /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6812E2CF239E1C23007459C3 /* Shape.swift */; };
+		6829870023D0C4D000929DC0 /* UIView+helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682986FF23D0C4CF00929DC0 /* UIView+helpers.swift */; };
+		6847468B23D1FFB100E54380 /* CalendarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6847468A23D1FFB100E54380 /* CalendarController.swift */; };
+		6847468D23D2047C00E54380 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6847468C23D2047C00E54380 /* CalendarCell.swift */; };
+		6847468F23D2915C00E54380 /* CalendarTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6847468E23D2915C00E54380 /* CalendarTimeCell.swift */; };
+		6847469123D2CCBF00E54380 /* Month.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6847469023D2CCBF00E54380 /* Month.swift */; };
 		684907CF23BFBD020035A9D7 /* SelectedTimesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684907CE23BFBD020035A9D7 /* SelectedTimesController.swift */; };
 		684907D223BFE0BA0035A9D7 /* ShapesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684907D123BFE0BA0035A9D7 /* ShapesViewController.swift */; };
 		684CF87B23C5A24100D05B4B /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684CF87A23C5A24100D05B4B /* MainTabBarController.swift */; };
@@ -44,12 +50,16 @@
 		68E8C731239A1F30002281DE /* MedicationsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E8C730239A1F30002281DE /* MedicationsNavigationController.swift */; };
 		68E8C733239ACC5C002281DE /* MedicationsController+UICollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E8C732239ACC5C002281DE /* MedicationsController+UICollectionViewDelegate.swift */; };
 		68E8C736239ACC9C002281DE /* MedicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E8C735239ACC9C002281DE /* MedicationController.swift */; };
+		B17699D081BBA601372F6F0D /* Pods_Dosage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A241AA7FA4C92B70CFB5279 /* Pods_Dosage.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A241AA7FA4C92B70CFB5279 /* Pods_Dosage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dosage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BB62B045085D5CDA17F68EA /* Pods-Dosage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dosage.debug.xcconfig"; path = "Target Support Files/Pods-Dosage/Pods-Dosage.debug.xcconfig"; sourceTree = "<group>"; };
 		68057BA723C03BCB001469EB /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		68057BA923C03D98001469EB /* AddTimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimeCell.swift; sourceTree = "<group>"; };
 		68057BAB23C03F6C001469EB /* SelectedTimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedTimeCell.swift; sourceTree = "<group>"; };
+		6811E01C23C666110070C21A /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
 		6812E2BC239B7812007459C3 /* SlideInPresentationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInPresentationManager.swift; sourceTree = "<group>"; };
 		6812E2BE239B787F007459C3 /* SlideInPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInPresentationController.swift; sourceTree = "<group>"; };
 		6812E2C0239B79DA007459C3 /* AddMedicationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMedicationViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +69,11 @@
 		6812E2CA239E025B007459C3 /* ShapeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeCell.swift; sourceTree = "<group>"; };
 		6812E2CC239E1A9E007459C3 /* UIStackView+helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+helpers.swift"; sourceTree = "<group>"; };
 		6812E2CF239E1C23007459C3 /* Shape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
+		682986FF23D0C4CF00929DC0 /* UIView+helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+helpers.swift"; sourceTree = "<group>"; };
+		6847468A23D1FFB100E54380 /* CalendarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarController.swift; sourceTree = "<group>"; };
+		6847468C23D2047C00E54380 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
+		6847468E23D2915C00E54380 /* CalendarTimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTimeCell.swift; sourceTree = "<group>"; };
+		6847469023D2CCBF00E54380 /* Month.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Month.swift; sourceTree = "<group>"; };
 		684907CE23BFBD020035A9D7 /* SelectedTimesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedTimesController.swift; sourceTree = "<group>"; };
 		684907D123BFE0BA0035A9D7 /* ShapesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapesViewController.swift; sourceTree = "<group>"; };
 		684CF87A23C5A24100D05B4B /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -86,6 +101,7 @@
 		68E8C730239A1F30002281DE /* MedicationsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationsNavigationController.swift; sourceTree = "<group>"; };
 		68E8C732239ACC5C002281DE /* MedicationsController+UICollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MedicationsController+UICollectionViewDelegate.swift"; sourceTree = "<group>"; };
 		68E8C735239ACC9C002281DE /* MedicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationController.swift; sourceTree = "<group>"; };
+		FD68EDE9BB9FAFBAF70A97B1 /* Pods-Dosage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dosage.release.xcconfig"; path = "Target Support Files/Pods-Dosage/Pods-Dosage.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,12 +109,25 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B17699D081BBA601372F6F0D /* Pods_Dosage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6811E01B23C664DF0070C21A /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				6811E01C23C666110070C21A /* CustomSegmentedControl.swift */,
+				6847468A23D1FFB100E54380 /* CalendarController.swift */,
+				6847468C23D2047C00E54380 /* CalendarCell.swift */,
+				6847468E23D2915C00E54380 /* CalendarTimeCell.swift */,
+				6847469023D2CCBF00E54380 /* Month.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
 		6812E2BA239B77DF007459C3 /* AddMedication */ = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +230,8 @@
 			children = (
 				68E8C706239A0EF7002281DE /* Dosage */,
 				68E8C705239A0EF7002281DE /* Products */,
+				8E750480470E84857E789D6E /* Pods */,
+				AF9470DE853902188B55211F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -215,6 +246,7 @@
 		68E8C706239A0EF7002281DE /* Dosage */ = {
 			isa = PBXGroup;
 			children = (
+				6811E01B23C664DF0070C21A /* Calendar */,
 				68E8C723239A187D002281DE /* DosageModels.xcdatamodeld */,
 				68E8C720239A17CB002281DE /* Extensions */,
 				68E8C71B239A10E8002281DE /* Medications */,
@@ -255,6 +287,7 @@
 				68E8C721239A17E5002281DE /* UIColor+helpers.swift */,
 				6812E2CC239E1A9E007459C3 /* UIStackView+helpers.swift */,
 				6858FFF523A0950D00EA8DA8 /* UILabel+helpers.swift */,
+				682986FF23D0C4CF00929DC0 /* UIView+helpers.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -288,6 +321,24 @@
 			path = Medication;
 			sourceTree = "<group>";
 		};
+		8E750480470E84857E789D6E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2BB62B045085D5CDA17F68EA /* Pods-Dosage.debug.xcconfig */,
+				FD68EDE9BB9FAFBAF70A97B1 /* Pods-Dosage.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		AF9470DE853902188B55211F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0A241AA7FA4C92B70CFB5279 /* Pods_Dosage.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -295,9 +346,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 68E8C718239A0EF9002281DE /* Build configuration list for PBXNativeTarget "Dosage" */;
 			buildPhases = (
+				8CCB2A2F7EC7C73C40AA0D16 /* [CP] Check Pods Manifest.lock */,
 				68E8C700239A0EF7002281DE /* Sources */,
 				68E8C701239A0EF7002281DE /* Frameworks */,
 				68E8C702239A0EF7002281DE /* Resources */,
+				8B417EF1B53C7839474C943C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -354,6 +407,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		8B417EF1B53C7839474C943C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Dosage/Pods-Dosage-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Dosage/Pods-Dosage-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Dosage/Pods-Dosage-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8CCB2A2F7EC7C73C40AA0D16 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Dosage-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		68E8C700239A0EF7002281DE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -362,12 +457,14 @@
 				68E8C72C239A1DBB002281DE /* MedicationsController+UICollectionViewDataSource.swift in Sources */,
 				68E8C71F239A1341002281DE /* MedicationCell.swift in Sources */,
 				68057BAA23C03D98001469EB /* AddTimeCell.swift in Sources */,
+				6847468B23D1FFB100E54380 /* CalendarController.swift in Sources */,
 				68E8C736239ACC9C002281DE /* MedicationController.swift in Sources */,
 				68C3CE2623C003C10083AB5F /* StartEndDatePickerController.swift in Sources */,
 				6812E2C4239C55D4007459C3 /* AddMedicationView.swift in Sources */,
 				68E8C708239A0EF7002281DE /* AppDelegate.swift in Sources */,
 				6812E2C1239B79DA007459C3 /* AddMedicationViewController.swift in Sources */,
 				68C04B8323BD5ED1002AD7BA /* DayOfWeekCell.swift in Sources */,
+				6847468F23D2915C00E54380 /* CalendarTimeCell.swift in Sources */,
 				68057BAC23C03F6C001469EB /* SelectedTimeCell.swift in Sources */,
 				68BBBADC23BFE5FC00AF24E5 /* DosageViewController.swift in Sources */,
 				684907D223BFE0BA0035A9D7 /* ShapesViewController.swift in Sources */,
@@ -385,8 +482,12 @@
 				6812E2BD239B7812007459C3 /* SlideInPresentationManager.swift in Sources */,
 				68E8C725239A187D002281DE /* DosageModels.xcdatamodeld in Sources */,
 				68E8C72E239A1E42002281DE /* MedicationsController+UICollectionViewDelegateFlowLayout.swift in Sources */,
+				6847469123D2CCBF00E54380 /* Month.swift in Sources */,
+				6829870023D0C4D000929DC0 /* UIView+helpers.swift in Sources */,
 				6812E2BF239B787F007459C3 /* SlideInPresentationController.swift in Sources */,
+				6847468D23D2047C00E54380 /* CalendarCell.swift in Sources */,
 				6812E2C9239D7FA0007459C3 /* MedicationsController+AddMedicationControllerDelegate.swift in Sources */,
+				6811E01D23C666120070C21A /* CustomSegmentedControl.swift in Sources */,
 				68E8C727239A19E2002281DE /* CoreDataManager.swift in Sources */,
 				68D809AC23C1560E00B90918 /* AddTimeController.swift in Sources */,
 				6812E2CD239E1A9E007459C3 /* UIStackView+helpers.swift in Sources */,
@@ -526,6 +627,7 @@
 		};
 		68E8C719239A0EF9002281DE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2BB62B045085D5CDA17F68EA /* Pods-Dosage.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -546,6 +648,7 @@
 		};
 		68E8C71A239A0EF9002281DE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD68EDE9BB9FAFBAF70A97B1 /* Pods-Dosage.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
