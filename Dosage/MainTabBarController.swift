@@ -14,6 +14,6 @@ class MainTabBarController: UITabBarController {
         
         let medicationsNavController = MedicationsNavigationController(rootViewController: MedicationsController())
         
-        viewControllers = [medicationsNavController, CalendarController()]
+        viewControllers = [medicationsNavController, CalendarController(month: .Jan)]
     }
 }
